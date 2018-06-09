@@ -6,7 +6,7 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/06 14:54:12 by cammapou          #+#    #+#             */
-/*   Updated: 2018/06/08 17:45:00 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/06/09 12:28:10 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ void ft_quick_b(t_ev *ev, t_list **lst_a, t_list **lst_b)
     int med2;
 
     med = ft_check_med(lst_b);
-    printf("med_b =%d\n", med);
+    //printf("med_b =%d\n", med);
+    //printf("ici\n");
     while (ft_check_val2(*lst_b, med) == -1)
     {
         if (*(int*)(*lst_b)->content > med)
@@ -147,7 +148,7 @@ void ft_quick(t_ev *ev, t_list **lst_a, t_list **lst_b)
         {
             if (len == 3)
                 break;
-            printf("med =%d\n", med);
+            //printf("med =%d\n", med);
             if (*(int*)(*lst_a)->content < med)
             {
                 ft_pb(lst_a, lst_b);
@@ -177,16 +178,16 @@ void ft_quick(t_ev *ev, t_list **lst_a, t_list **lst_b)
             }
         }
         len = ft_stack_len_a(*lst_a);
-        len_b = ft_stack_len_b(*lst_b);
+        //len_b = ft_stack_len_b(*lst_b);
         if (ft_check_stack2(*lst_b) != 0 || len_b == 1)
             ft_quick_b(ev, lst_a, lst_b);
             //printf("med =%d\n", len_b);
         if (ft_check_stack2(*lst_b) == 0 && len_b >= 4)
             ft_quick(ev, lst_a, lst_b);
         //printf("len =%d\n", len);
-        /*if (len == 3)
+        if (len == 3)
         {
-            //printf("ici\n");
+            //printf("ici1\n");
             len_b = ft_stack_len_b(*lst_b);
             while (len_b)
             {
@@ -196,7 +197,7 @@ void ft_quick(t_ev *ev, t_list **lst_a, t_list **lst_b)
             }
 
 
-        }*/
+        }
 
 
 

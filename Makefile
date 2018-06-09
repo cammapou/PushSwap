@@ -6,7 +6,7 @@
 #    By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/03 14:18:21 by cammapou          #+#    #+#              #
-#    Updated: 2018/06/08 17:47:47 by cammapou         ###   ########.fr        #
+#    Updated: 2018/06/09 12:27:12 by cammapou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,6 @@ OBJ_C = $(SRC_C:.c=.o)
 
 LIB = libft/libft.a \
 		printf/libftprintf.a
-
 
 LIBFT = libft
 PRINTF = printf
