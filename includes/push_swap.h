@@ -6,7 +6,7 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 12:48:10 by cammapou          #+#    #+#             */
-/*   Updated: 2018/06/09 15:39:42 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/06/09 19:12:40 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,15 @@ int 				      flagV;
 int					      flagC;
 }					        t_ev;
 
+//void ft_quick_b1(t_ev *ev, t_list **lst_a, t_list **lst_b);
+int ft_check_med0(t_list **lst_a);
+int ft_check_med3(t_list **lst_b);
 void ft_quick_b1(t_ev *ev, t_list **lst_a, t_list **lst_b);
+void ft_quick_b3(t_ev *ev, t_list **lst_a, t_list **lst_b);
+void ft_small(t_ev *ev, t_list **lst_a, t_list **lst_b);
 void ft_quick_b(t_ev *ev, t_list **lst_a, t_list **lst_b);
+void ft_quick_b2(t_ev *ev, t_list **lst_a, t_list **lst_b);
+
 int             ft_check_med2(t_list **lst_b);
 int	          ft_check_stack2(t_list *lst_a);
 void 		  ft_algomin2(t_list **lst_a);

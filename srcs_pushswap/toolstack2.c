@@ -6,7 +6,7 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 12:02:28 by cammapou          #+#    #+#             */
-/*   Updated: 2018/06/09 13:55:44 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/06/09 19:12:19 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_check_val2(t_list *lst_b, int nbr)
 	return (0);
 }
 
-int ft_check_med(t_list **lst_a)
+int ft_check_med0(t_list **lst_a)
 {
 	int min;
 	int max;
@@ -57,7 +57,41 @@ int ft_check_med(t_list **lst_a)
 	min = ft_min_value(*lst_a);
 	//
 	med = min + (max - min) / 2;
-	med2 = min + (max - min) / 2;
+	//med2 = min + (max - min) / 2;
+
+
+	//med = max + (min - max) / 2;
+
+	//dif = (med - min) / 2;
+	//med = med - max;
+
+	//dif = (max - med) / 2;
+	//med = dif + med;
+	//med = med / 2;
+
+	return (med);
+
+
+
+}
+
+int ft_check_med(t_list **lst_a)
+{
+	int min;
+	int max;
+	int len;
+	int dif;
+	int med;
+	int med2;
+
+	dif = 0;
+	med	= 0;
+	len	= ft_stack_len_a(*lst_a);
+	max = ft_max_value(*lst_a);
+	min = ft_min_value(*lst_a);
+	//
+	med = min + (max - min) / 3;
+	//med2 = min + (max - min) / 2;
 
 
 	//med = max + (min - max) / 2;
@@ -91,7 +125,43 @@ int ft_check_med2(t_list **lst_b)
 	//printf("max = %d\n", max);
 	//printf("min =%d\n", min);
 	//med = min + (max - min) / 4;
-	med = min + (max - min) / 4;
+	med = min + (max - min) / 6;
+
+
+	//med = max + (min - max) / 2;
+
+	//dif = (med - min) / 2;
+	//med = med - max;
+
+	//dif = (max - med) / 2;
+	//med = dif + med;
+	//med = med / 2;
+
+	return (med);
+
+
+
+}
+
+
+int ft_check_med3(t_list **lst_b)
+{
+	int min;
+	int max;
+	int len;
+	int dif;
+	int med;
+	int med2;
+
+	dif = 0;
+	med	= 0;
+	len	= ft_stack_len_a(*lst_b);
+	max = ft_max_value(*lst_b);
+	min = ft_min_value(*lst_b);
+	//printf("max = %d\n", max);
+	//printf("min =%d\n", min);
+	//med = min + (max - min) / 4;
+	med = min + (max - min) / 9;
 
 
 	//med = max + (min - max) / 2;
