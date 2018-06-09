@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toolstack.c                                       :+:      :+:    :+:   */
+/*   ft_toolstack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 12:02:28 by cammapou          #+#    #+#             */
-/*   Updated: 2018/05/17 17:12:18 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/06/09 15:07:37 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 
-int	ft_min_value(t_list *lst_a)
+int	ft_min_value(t_list *lst)
 {
 	t_list	*tmp;
 	int			*min;
 
-	if (!lst_a->content)
+	if (!lst->content)
 		return (0);
-	min = lst_a->content;
-	tmp = lst_a->next;
+	min = lst->content;
+	tmp = lst->next;
 
 	while (tmp)
 	{
@@ -32,18 +32,23 @@ int	ft_min_value(t_list *lst_a)
 	return (*min);
 }
 
-int		ft_max_value(t_list *lst_a)
+int		ft_max_value(t_list *lst)
 {
-	int	max;
+	t_list	*tmp;
+	int			*max;
 
-	max = 0;
-	while (lst_a && lst_a->content)
+	if (!lst->content)
+		return (0);
+	max = lst->content;
+	tmp = lst->next;
+
+	while (tmp)
 	{
-		if (((*(int*)lst_a->content) > max))
-			max = (*(int*)lst_a->content);
-		lst_a = lst_a->next;
+		if (*max < *(int*)tmp->content)
+			max = (int*)tmp->content;
+		tmp = tmp->next;
 	}
-	return (max);
+	return (*max);
 }
 
 size_t ft_stack_len_b(t_list *lst_b)

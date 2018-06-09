@@ -6,7 +6,7 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 12:02:28 by cammapou          #+#    #+#             */
-/*   Updated: 2018/06/08 17:15:05 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/06/09 12:31:20 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int ft_pushswap(t_ev  *ev, t_list  **lst_a, t_list  **lst_b)
     return(0);
   else if (len <= 3)
     ft_algomin(lst_a);
-  else if (len > 3 && len <= 100)
+  else if (len > 3 && len <= 500)
     ft_quick(ev, lst_a, lst_b);
   //else if (len > 3 && len <= 500)
    //ft_med_quick(ev, lst_a, lst_b);
