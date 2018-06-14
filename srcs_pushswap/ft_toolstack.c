@@ -6,7 +6,7 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 12:02:28 by cammapou          #+#    #+#             */
-/*   Updated: 2018/06/14 15:48:33 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/06/14 19:48:14 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,19 +78,19 @@ int		ft_stack_len_a(t_list *lst_a)
 		return (0);
 }
 
-int		ft_stack_de(t_list *lst_a)
+int		ft_stack_de(t_list *lst_b)
 {
 	int			*nbr_tmp;
 	t_list		*tmpstack;
 
-	tmpstack = lst_a;
+	tmpstack = lst_b;
 	nbr_tmp = (int*)tmpstack->content;
 	while (tmpstack->next)
 	{
-		if (*nbr_tmp < *(int*)tmpstack->next->content)
-			return (-1);
+		if (*nbr_tmp > *(int*)tmpstack->next->content)
+			return (0);
 		tmpstack = tmpstack->next;
 		nbr_tmp = (int*)tmpstack->content;
 	}
-	return (0);
+	return (-1);
 }

@@ -6,7 +6,7 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 12:48:10 by cammapou          #+#    #+#             */
-/*   Updated: 2018/06/14 13:03:55 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/06/14 19:25:39 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void				ft_rrb(t_list **lst_b);
 */
 void				ft_stack_clear(t_list **begin_list);
 int					ft_check_val(t_list *lst_a, int nbr);
-int					ft_stack_de(t_list *lst_a);
+int					ft_stack_de(t_list *lst_b);
 int					ft_min_value(t_list	*lst_a);
 int					ft_max_value(t_list *lst_a);
 int					ft_stack_len_b(t_list *lst_b);
