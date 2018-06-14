@@ -6,7 +6,7 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/06 14:54:12 by cammapou          #+#    #+#             */
-/*   Updated: 2018/06/09 19:26:37 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/06/14 16:06:30 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void ft_small(t_ev *ev, t_list **lst_a, t_list **lst_b)
             break ;
         }
    }
-   ft_quick_b1(ev, lst_a, lst_b);
+   //ft_quick_b1(ev, lst_a, lst_b);
 }
 
 void ft_quick_b3(t_ev *ev, t_list **lst_a, t_list **lst_b)
@@ -94,10 +94,8 @@ void ft_quick_b3(t_ev *ev, t_list **lst_a, t_list **lst_b)
     int max;
 
     med = ft_check_med(lst_a);
-    //printf("med =%d\n", med);
     while (ft_check_val(*lst_a, med) == -1)
     {
-        //printf("med =%d\n", med);
         if (*(int*)(*lst_a)->content < med)
         {
             ft_pb(lst_a, lst_b);
@@ -132,11 +130,9 @@ void ft_quick_b2(t_ev *ev, t_list **lst_a, t_list **lst_b)
     int med2;
     int max;
 
-    med = ft_check_med(lst_a);
-    //printf("med =%d\n", med);
+    med = ft_check_med2(lst_a);
     while (ft_check_val(*lst_a, med) == -1)
     {
-        //printf("med =%d\n", med);
         if (*(int*)(*lst_a)->content < med)
         {
             ft_pb(lst_a, lst_b);
@@ -152,7 +148,6 @@ void ft_quick_b2(t_ev *ev, t_list **lst_a, t_list **lst_b)
         //    ft_print_lst_b(*lst_b);
         }
         len_b = ft_stack_len_b(*lst_b);
-        //printf("len_b = %d\n", len_b);
         if (len_b >= 2)
         {
             if (*((int*)(*lst_b)->content) < *((int*)(*lst_b)->next->content))
@@ -174,7 +169,7 @@ void ft_quick(t_ev *ev, t_list **lst_a, t_list **lst_b)
     int len_b;
 
     max = ft_max_value(*lst_a);
-    med = ft_check_med2(lst_a);
+    med = ft_check_med(lst_a);
         while (ft_check_val(*lst_a, med) == -1)
         {
             if (*(int*)(*lst_a)->content < med)

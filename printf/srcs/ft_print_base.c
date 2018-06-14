@@ -20,7 +20,8 @@ void	ft_print_base_pre(t_env *op, char type, long val)
 		op->ret += (type == 'x') ? write(1, "0x", 2) : 0;
 		op->ret += (type == 'X') ? write(1, "0X", 2) : 0;
 	}
-	else if ((type == 'o' || type == 'O') && op->flags.hash && op->flags.press >= 0)
+	else if ((type == 'o' || type == 'O') && op->flags.hash &&
+		op->flags.press >= 0)
 		op->ret += write(1, "0", 1);
 }
 
@@ -38,7 +39,8 @@ void	ft_print_base_width(t_env *op, char type)
 	}
 	if (op->flags.press >= 0)
 	{
-		while (op->flags.width > op->flags.press + ++i && op->flags.width > len + i)
+		while (op->flags.width > op->flags.press + ++i
+				&& op->flags.width > len + i)
 			op->ret += write(1, " ", 1);
 		while (op->flags.width > len + i++)
 			op->ret += write(1, "0", 1);

@@ -6,13 +6,13 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 12:02:28 by cammapou          #+#    #+#             */
-/*   Updated: 2018/06/08 11:49:14 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/06/14 15:40:22 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void 		ft_algomin2(t_list **lst_b)
+void	ft_algomin2(t_list **lst_b)
 {
  	while (ft_check_stack2(*lst_b) != 0)
  	{
@@ -42,15 +42,11 @@ void 		ft_algomin(t_list **lst_a)
 		{
 			ft_sa(lst_a);
 			ft_printf("sa\n");
-		//	ft_print_lst_a(*lst_a);
-
 		}
 		else
 		{
 			ft_rra(lst_a);
 			ft_printf("rra\n");
-			//ft_print_lst_a(*lst_a);
-
 		}
 	}
 }

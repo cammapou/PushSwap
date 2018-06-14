@@ -6,7 +6,7 @@
 /*   By: cammapou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 11:28:26 by cammapou          #+#    #+#             */
-/*   Updated: 2018/04/10 11:28:28 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/04/18 12:24:38 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	ft_spec_wchar(t_env *op, char type)
 
 void	ft_spec_ptraddr(t_env *op, char type)
 {
-	long			value;
-	unsigned	long p;
+	long				value;
+	unsigned	long	p;
 
 	value = va_arg(op->ap, long);
 	p = (unsigned long)value;

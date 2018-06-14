@@ -6,7 +6,7 @@
 /*   By: cammapou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 11:25:56 by cammapou          #+#    #+#             */
-/*   Updated: 2018/04/10 11:32:38 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/04/18 12:16:50 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_spec_base(t_env *op, char type)
 	if (op->mod == pf_hh)
 		val = (unsigned char)tmp;
 	else if (type == 'O' || op->mod == pf_z || op->mod == pf_ll ||
-		op->mod == pf_j || op->mod == pf_l)
+			op->mod == pf_j || op->mod == pf_l)
 		val = (unsigned long)tmp;
 	else if (op->mod == pf_h)
 		val = (unsigned short)tmp;
@@ -39,7 +39,7 @@ void	ft_spec_base(t_env *op, char type)
 
 void	ft_spec_unsint(t_env *op, char type)
 {
-	long tmp;
+	long	tmp;
 
 	op->flags.space = 0;
 	op->flags.plus = 0;
@@ -84,7 +84,7 @@ void	ft_spec_char(t_env *op, char type)
 void	ft_spec_int(t_env *op)
 {
 	long	tmp;
-	long i;
+	long	i;
 
 	tmp = va_arg(op->ap, long);
 	i = (long long)tmp;

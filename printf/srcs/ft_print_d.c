@@ -29,7 +29,8 @@ void	ft_print_digit_width(t_env *op)
 	i = -1;
 	len = ((int)ft_strlen(op->out) > op->flags.press ?
 	(int)ft_strlen(op->out) : op->flags.press);
-	(op->flags.plus + op->flags.space + op->flags.neg) >= 1 ? op->flags.width-- : 0;
+	(op->flags.plus + op->flags.space + op->flags.neg)
+		>= 1 ? op->flags.width-- : 0;
 	if (op->flags.press >= 0)
 	{
 		while (op->flags.width - ++i > len)

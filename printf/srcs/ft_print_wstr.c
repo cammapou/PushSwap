@@ -6,7 +6,7 @@
 /*   By: cammapou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 11:28:10 by cammapou          #+#    #+#             */
-/*   Updated: 2018/04/10 11:54:03 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/04/18 12:27:22 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,29 +79,29 @@ void	ft_print_wstr_minus(t_env *op, wchar_t *wc, int len)
 	}
 	while (op->flags.width-- > len)
 		op->ret += (op->flags.zero == 1 ?
-		write(1, "0", 1) : write(1, " ", 1));
+				write(1, "0", 1) : write(1, " ", 1));
 }
 
 void	ft_print_wstr(t_env *op, wchar_t *wc)
 {
 	int		i;
-	int len;
+	int		len;
 
 	i = -1;
 	len = (op->flags.press < 0 ? ft_get_wstr_len(wc) : op->flags.press);
-if (op->flags.minus)
-	ft_print_wstr_minus(op, wc, len);
-else
-{
-	while (op->flags.width-- > len)
-		op->ret += (op->flags.zero == 1 ?
-		write(1, "0", 1) : write(1, " ", 1));
-	if (op->flags.press >= 0)
-		while (wc[++i] != 0 && i * 4 < op->flags.press)
-			ft_put_wstr(op, wc[i]);
+	if (op->flags.minus)
+		ft_print_wstr_minus(op, wc, len);
 	else
-		while (wc[++i] != 0)
-			ft_put_wstr(op, wc[i]);
-}
-++op->i;
+	{
+		while (op->flags.width-- > len)
+			op->ret += (op->flags.zero == 1 ?
+					write(1, "0", 1) : write(1, " ", 1));
+		if (op->flags.press >= 0)
+			while (wc[++i] != 0 && i * 4 < op->flags.press)
+				ft_put_wstr(op, wc[i]);
+		else
+			while (wc[++i] != 0)
+				ft_put_wstr(op, wc[i]);
+	}
+	++op->i;
 }

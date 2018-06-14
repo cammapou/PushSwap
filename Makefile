@@ -6,7 +6,7 @@
 #    By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/03 14:18:21 by cammapou          #+#    #+#              #
-#    Updated: 2018/06/09 12:27:12 by cammapou         ###   ########.fr        #
+#    Updated: 2018/06/14 13:11:56 by cammapou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,17 +15,17 @@ NAME_P = push_swap
 NAME_C = checker
 
 SRC_P = srcs_pushswap/main_push.c \
-		ft_lst_init.c \
+		src_common/ft_lst_init.c \
 		instruction/ft_instruction1.c \
 		instruction/ft_instruction2.c \
 		srcs_pushswap/ft_algomin.c \
-		srcs_pushswap/ft_algomed.c \
 		srcs_pushswap/ft_pushswap.c \
 		srcs_pushswap/ft_toolstack.c \
 		srcs_pushswap/toolstack2.c \
 		ft_algo.c \
 		srcs_checker/checker.c \
-		ft_error.c
+		srcs_pushswap/algo_min.c \
+		src_common/ft_error.c
 
 OBJ_P = $(SRC_P:.c=.o)
 
@@ -33,8 +33,8 @@ SRC_C = srcs_checker/main_check.c \
 		srcs_checker/checker.c \
 		instruction/ft_instruction1.c \
 		instruction/ft_instruction2.c \
-		ft_lst_init.c \
-		ft_error.c
+		src_common/ft_lst_init.c \
+		src_common/ft_error.c
 
 OBJ_C = $(SRC_C:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: cammapou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 11:26:52 by cammapou          #+#    #+#             */
-/*   Updated: 2018/04/10 11:26:54 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/04/18 12:26:07 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void	ft_option(const char *restrict fmt, t_env *op)
 			++op->i;
 	}
 }
+
 void	ft_get_spec(const char *restrict fmt, t_env *op)
 {
 	if (fmt[op->i] == '%' || !fmt[op->i])
