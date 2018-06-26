@@ -82,6 +82,7 @@ int		ft_init_pile(t_list **lst_a, int ac, char **av)
 		}
 		ac--;
 	}
+//	ft_lstrev(lst_a);
 	free(i);
 	return (1);
 }

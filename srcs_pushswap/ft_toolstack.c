@@ -12,40 +12,32 @@
 
 #include "../includes/push_swap.h"
 
-int		ft_min_value(t_list *lst)
+int		ft_minval(t_list *lst)
 {
-	t_list	*tmp;
-	int		*min;
+	int	min;
 
-	if (!lst->content)
-		return (0);
-	min = lst->content;
-	tmp = lst->next;
-	while (tmp)
+	min = INT_MAX;
+	while (lst && lst->content)
 	{
-		if (*min > *(int*)tmp->content)
-			min = (int*)tmp->content;
-		tmp = tmp->next;
+		if (((*(int*)lst->content) < min))
+			min = (*(int*)lst->content);
+		lst = lst->next;
 	}
-	return (*min);
+	return (min);
 }
 
-int		ft_max_value(t_list *lst)
+int		ft_maxval(t_list *lst)
 {
-	t_list	*tmp;
-	int		*max;
+	int	max;
 
-	if (!lst->content)
-		return (0);
-	max = lst->content;
-	tmp = lst->next;
-	while (tmp)
+	max = INT_MIN;
+	while (lst && lst->content)
 	{
-		if (*max < *(int*)tmp->content)
-			max = (int*)tmp->content;
-		tmp = tmp->next;
+		if (((*(int*)lst->content) > max))
+			max = (*(int*)lst->content);
+		lst = lst->next;
 	}
-	return (*max);
+	return (max);
 }
 
 int		ft_stack_len_b(t_list *lst_b)
@@ -78,19 +70,13 @@ int		ft_stack_len_a(t_list *lst_a)
 		return (0);
 }
 
-int		ft_stack_de(t_list *lst_b)
+int		ft_check_stack(t_list *lst_a)
 {
-	int			*nbr_tmp;
-	t_list		*tmpstack;
-
-	tmpstack = lst_b;
-	nbr_tmp = (int*)tmpstack->content;
-	while (tmpstack->next)
+	while (lst_a->next)
 	{
-		if (*nbr_tmp > *(int*)tmpstack->next->content)
-			return (0);
-		tmpstack = tmpstack->next;
-		nbr_tmp = (int*)tmpstack->content;
+		if ((*(int*)lst_a->next->content) > (*(int*)lst_a->content))
+				return (0);
+		lst_a = lst_a->next;
 	}
-	return (-1);
+	return (1);
 }

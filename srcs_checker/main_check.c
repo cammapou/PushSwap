@@ -27,6 +27,6 @@ int		main(int ac, char **av)
 		return (-1);
 	}
 	ft_checker(lst_a, ac, av);
-	ft_print_lst_a(lst_a);
+	//ft_print_lst_a(lst_a);
 	return (0);
 }

@@ -19,6 +19,11 @@ int		main(int ac, char **av)
 	t_ev	*ev;
 
 	lst_b = NULL;
+	if (ac <= 1)
+	{
+		ft_putendl("usage: ARG= 4 67 3; ./push_swap $ARG | ./checker $ARG");
+		return (0);
+	}
 	if (!(ev = ft_memalloc(sizeof(t_ev))))
 		return (-1);
 	ft_bzero(ev, sizeof(ev));
@@ -31,8 +36,8 @@ int		main(int ac, char **av)
 	if (ft_init_pile(&lst_a, ac, av) == 0)
 		return (-1);
 	ft_pushswap(ev, &lst_a, &lst_b);
-	ft_print_lst_a(lst_a);
-	ft_print_lst_b(lst_b);
+	//ft_print_lst_a(lst_a);
+	//ft_print_lst_b(lst_b);
 	ft_stack_clear(&lst_a);
 	return (0);
 }

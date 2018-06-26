@@ -12,24 +12,22 @@
 
 #include "../includes/push_swap.h"
 
-int		ft_check_stack(t_list *lst_a)
+int		ft_stack_cr(t_list *lst_a)
 {
-	int		*j;
-	int		*i;
-	t_list	*tmp;
+	int			*nbr_tmp;
+	t_list		*tmpstack;
 
-	tmp = lst_a;
-	while (tmp->next)
+	tmpstack = lst_a;
+	nbr_tmp = (int*)tmpstack->content;
+	while (tmpstack->next)
 	{
-		i = tmp->content;
-		j = tmp->next->content;
-		if (*i > *j)
+		if (*nbr_tmp > *(int*)tmpstack->next->content)
 			return (-1);
-		tmp = tmp->next;
+		tmpstack = tmpstack->next;
+		nbr_tmp = (int*)tmpstack->content;
 	}
 	return (0);
 }
-
 int		ft_checkop(t_list *lst_a, t_list *lst_b, char *buf)
 {
 	ft_strcmp(buf, "sa") == 0 ? ft_sa(&lst_a) : 0;
@@ -54,6 +52,7 @@ int		ft_checker(t_list *lst_a, int ac, char **av)
 	buf = NULL;
 	while (get_next_line(0, &buf) > 0)
 	{
+
 		if (ft_checkop(lst_a, lst_b, buf) == -1)
 		{
 			free(buf);
@@ -61,9 +60,9 @@ int		ft_checker(t_list *lst_a, int ac, char **av)
 			return (-1);
 		}
 	}
-	if (ft_check_stack(lst_a) == 0)//&& !(lst_b)->content)
-		ft_printf("OK");
-	else
+	if (ft_stack_cr(lst_a))//&& !(lst_b)->content)
 		ft_printf("KO");
+	else
+		ft_printf("OK");
 	return (0);
 }

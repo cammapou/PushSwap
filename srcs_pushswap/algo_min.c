@@ -12,6 +12,34 @@
 
 #include "../includes/push_swap.h"
 
+int		ft_check_stack2(t_list *lst_a)
+{
+	while (lst_a->next)
+	{
+		if (*((int*)lst_a->content) > *((int*)lst_a->next->content))
+			return (-1);
+		lst_a = lst_a->next;
+	}
+	return (0);
+}
+
+void 		ft_algomin(t_list **lst_a)
+{
+ 	while (ft_check_stack2(*lst_a) == -1)
+ 	{
+ 		if (*((int*)(*lst_a)->content) > *((int*)(*lst_a)->next->content))
+		{
+			ft_sa(lst_a);
+			ft_printf("sa\n");
+		}
+		else
+		{
+			ft_rra(lst_a);
+			ft_printf("rra\n");
+		}
+	}
+}
+
 void	ft_suite_pa(t_ev *ev, t_list **lst_a, t_list **lst_b)
 {
 	ev->len_b = ft_stack_len_b(*lst_b);

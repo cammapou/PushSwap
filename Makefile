@@ -18,13 +18,15 @@ SRC_P = srcs_pushswap/main_push.c \
 		src_common/ft_lst_init.c \
 		instruction/ft_instruction1.c \
 		instruction/ft_instruction2.c \
-		srcs_pushswap/ft_algomin.c \
 		srcs_pushswap/ft_pushswap.c \
 		srcs_pushswap/ft_toolstack.c \
 		srcs_pushswap/toolstack2.c \
-		ft_algo.c \
+		srcs_pushswap/ft_sort.c \
+		srcs_pushswap/ft_sort1.c \
+		srcs_pushswap/ft_algo.c \
 		srcs_checker/checker.c \
 		srcs_pushswap/algo_min.c \
+		srcs_pushswap/tool_sort.c \
 		src_common/ft_error.c
 
 OBJ_P = $(SRC_P:.c=.o)
