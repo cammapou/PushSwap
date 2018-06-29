@@ -12,6 +12,35 @@
 
 #include "../includes/push_swap.h"
 
+/*static SDL_Window	*verbose(t_list **lst_a, t_list **lst_b, int *v_fl)
+{
+	static SDL_Renderer	*render;
+	static SDL_Window	*window;
+
+	if (ft_lstcount(*lst_a) + ft_lstcount(*lst_b) < 1900)
+	{
+		if (*v_fl && window == NULL)
+		{
+			if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
+			{
+				ft_printf("Error\n");
+				return (NULL);
+			}
+			window = SDL_CreateWindow("PushSwap", 0, 0, 1920, 800, 0);
+			render = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
+			if (!window || !render)
+			{
+				ft_printf("Error\n");
+				SDL_Quit();
+				return (NULL);
+			}
+		}
+		w_draw(render, *lst_a, *lst_b);
+		SDL_Delay(LATENCY);
+	}
+	return (window);
+}*/
+
 int		ft_stack_cr(t_list *lst_a)
 {
 	int			*nbr_tmp;

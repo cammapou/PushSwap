@@ -36,8 +36,8 @@ int		main(int ac, char **av)
 	if (ft_init_pile(&lst_a, ac, av) == 0)
 		return (-1);
 	ft_pushswap(ev, &lst_a, &lst_b);
-	//ft_print_lst_a(lst_a);
-	//ft_print_lst_b(lst_b);
+	ft_print_lst_a(lst_a);
+	ft_print_lst_b(lst_b);
 	ft_stack_clear(&lst_a);
 	return (0);
 }

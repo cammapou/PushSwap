@@ -64,12 +64,10 @@ int		ft_alpha(char *av)
 
 int		ft_error_check(int ac, char **av)
 {
-	int	i;
+	int i;
 
-	i = ;
-	//if (ft_alpha(av[i]) == -1)
-	//	return (-1);
-	else if (ft_check_doublon(&av[i]) == -1)
+	i = 0;
+	if (ft_check_doublon(&av[i]) == -1)
 		return (-1);
 	return (0);
 }
