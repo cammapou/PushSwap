@@ -60,8 +60,8 @@ int		ft_checker(t_list *lst_a, int ac, char **av)
 		}
 	}
 	if (ft_stack_cr(lst_a))
-		ft_printf("KO");
+		ft_putendl("KO");
 	else
-		ft_printf("OK");
+		ft_putendl("OK");
 	return (0);
 }

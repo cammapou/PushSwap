@@ -19,12 +19,12 @@ void 		ft_algomin(t_list **lst_a)
  		if (*((int*)(*lst_a)->content) > *((int*)(*lst_a)->next->content))
 		{
 			ft_sa(lst_a);
-			ft_printf("sa\n");
+			ft_putendl("sa");
 		}
 		else
 		{
 			ft_rra(lst_a);
-			ft_printf("rra\n");
+      ft_putendl("rra");
 		}
 	}
 }
@@ -37,7 +37,7 @@ void	ft_suite_pa(t_list **lst_a, t_list **lst_b, int c)
 	while (c)
 	{
 		ft_pa(lst_a, lst_b);
-		ft_printf("pa\n");
+    ft_putendl("pa");
 		c--;
 	}
 }
@@ -53,19 +53,20 @@ void	ft_quick_min(t_ev *ev, t_list **lst_a, t_list **lst_b)
 		if (*((int*)(*lst_a)->content) == min)
 		{
 			ft_pb(lst_a, lst_b);
-			ft_printf("pb\n");
+      ft_putendl("pb");
+
 			min = ft_minval(*lst_a);
 			c--;
 		}
 		else if (ft_len_sort(*lst_a, min) >= 0)
 		{
 			ft_ra(lst_a);
-			ft_printf("rra\n");
+      ft_putendl("ra");
 		}
 		else
 		{
 			ft_rra(lst_a);
-			ft_printf("ra\n");
+      ft_putendl("rra");
 		}
 	ft_suite_pa(lst_a, lst_b, c);
 }

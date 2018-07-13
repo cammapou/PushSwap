@@ -19,23 +19,23 @@ void ft_quick_b2(t_ev *ev, t_list **lst_a, t_list **lst_b, int med, int i)
 		if (*(int*)(*lst_b)->content > med)
 		{
 			ft_pa(lst_a, lst_b);
-			ft_printf("pa\n");
+			ft_putendl("pa");
 			i++;
 		}
 		else if (ft_len_sort(*lst_b, ft_maxval(*lst_b)) >= 0)
 		{
 			ft_rb(lst_b);
-			ft_printf("rrb\n");
+			ft_putendl("rb");
 		}
 		else
 		{
 			ft_rrb(lst_b);
-			ft_printf("rb\n");
+			ft_putendl("rrb");
 		}
 	while (i--)
 	{
 		ft_pb(lst_a, lst_b);
-		ft_printf("pb\n");
+		ft_putendl("pb");
 	}
 }
 
@@ -52,12 +52,12 @@ int ft_quick(t_ev *ev, t_list **lst_a, t_list **lst_b)
 			if (*(int*)(*lst_a)->content < ev->med)
 			{
 				ft_pb(lst_a, lst_b);
-				ft_printf("pb\n");
+				ft_putendl("pb");
 			}
 			else
 			{
 				ft_ra(lst_a);
-				ft_printf("ra\n");
+				ft_putendl("ra");
 			}
 		}
 		if (ft_lstcount(*lst_a) == 2)
@@ -77,18 +77,18 @@ int		ft_quick_b1a(t_list **lst_a, t_list **lst_b, int med, int i)
 		if (*(int*)(*lst_b)->content > med)
 		{
 			ft_pa(lst_a, lst_b);
-			ft_printf("pa\n");
+			ft_putendl("pa");
 			i++;
 		}
 		else if (ft_len_sort(*lst_b, ft_maxval(*lst_b)) >= 0)
 		{
 			ft_rb(lst_b);
-			ft_printf("rb\n");
+			ft_putendl("rb");
 		}
 		else
 		{
 			ft_rrb(lst_b);
-			ft_printf("rrb\n");
+			ft_putendl("rrb");
 		}
 	return (i);
 }
@@ -100,18 +100,18 @@ int		ft_quick_b1b(t_list **lst_a, t_list **lst_b, int med, int i)
 		if (*(int*)(*lst_b)->content > med)
 		{
 			ft_pa(lst_a, lst_b);
-			ft_printf("pa\n");
+			ft_putendl("pa");
 			i++;
 		}
 		else if (ft_len_sort(*lst_b, ft_maxval(*lst_b)) >= 0)
 		{
 			ft_rb(lst_b);
-			ft_printf("rb\n");
+			ft_putendl("rb");
 		}
 		else
 		{
 			ft_rrb(lst_b);
-			ft_printf("rrb\n");
+			ft_putendl("rrb");
 		}
 	return (i);
 }
@@ -123,22 +123,22 @@ void		ft_quick_b1c(t_list **lst_a, t_list **lst_b, int med, int i)
 		if (*(int*)(*lst_b)->content > med)
 		{
 			ft_pa(lst_a, lst_b);
-			ft_printf("pa\n");
+			ft_putendl("pa");
 			i++;
 		}
 		else if (ft_len_sort(*lst_b, ft_maxval(*lst_b)) >= 0)
 		{
 			ft_rb(lst_b);
-			ft_printf("rb\n");
+			ft_putendl("rb");
 		}
 		else
 		{
 			ft_rrb(lst_b);
-			ft_printf("rrb\n");
+			ft_putendl("rrb");
 		}
 	while (i--)
 	{
 		ft_pb(lst_a, lst_b);
-		ft_printf("pb\n");
+		ft_putendl("pb");
 	}
 }

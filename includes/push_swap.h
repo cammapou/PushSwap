@@ -36,8 +36,6 @@ typedef struct		s_ev
 /*
 **
 */
-int 	ft_check_cr(char **av, int ac);
-
 int					ft_pushswap(t_ev *ev, t_list **lst_a, t_list **lst_b);
 /*
 **				Sort
@@ -67,7 +65,6 @@ void				ft_suite_pa(t_list **lst_a, t_list **lst_b, int c);
 int					ft_alpha(char **av, int ac);
 int 				ft_int(char **av, int ac);
 int					ft_check_med(t_list **lst_a);
-void				ft_check_flags(t_ev *ev, char	**av);
 int					ft_error_check(int ac, char **av);
 int					ft_check_doublon(char **av);
 int					ft_init_pile(t_list **lst_a, int ac, char **av);

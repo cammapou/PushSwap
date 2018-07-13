@@ -12,33 +12,16 @@
 
 #include "../includes/push_swap.h"
 
-void	ft_check_flags(t_ev *ev, char **av)
-{
-	int	i;
-
-	i = 1;
-	ev->flagV = 0;
-	ev->flagC = 0;
-	while (av[i])
-	{
-		if (ft_strcmp(av[i], "-v") == 0)
-			ev->flagV = 1;
-		if (ft_strcmp(av[i], "-c") == 0)
-			ev->flagC = 1;
-		i++;
-	}
-}
-
 void	ft_print_lst_a(t_list *lst_a)
 {
 	if (lst_a)
 	{
 		while (lst_a)
 		{
-			printf(" lst_a = %d\n", *((int*)lst_a->content));
+			ft_printf(" lst_a = %d\n", *((int*)lst_a->content));
 			lst_a = lst_a->next;
 		}
-		printf("\n");
+		ft_printf("\n");
 	}
 	else
 		return ;
@@ -50,10 +33,10 @@ void	ft_print_lst_b(t_list *lst_b)
 	{
 		while (lst_b)
 		{
-			printf("lst_b = %d\n", *((int*)lst_b->content));
+			ft_printf("lst_b = %d\n", *((int*)lst_b->content));
 			lst_b = lst_b->next;
 		}
-		printf("\n");
+		ft_printf("\n");
 	}
 	else
 		return ;
@@ -82,7 +65,6 @@ int		ft_init_pile(t_list **lst_a, int ac, char **av)
 		}
 		ac--;
 	}
-//	ft_lstrev(lst_a);
 	free(i);
 	return (1);
 }
