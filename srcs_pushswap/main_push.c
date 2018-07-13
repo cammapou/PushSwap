@@ -21,23 +21,23 @@ int		main(int ac, char **av)
 	lst_b = NULL;
 	if (ac <= 1)
 	{
-		ft_putendl("usage: ARG= 4 67 3; ./push_swap $ARG | ./checker $ARG");
+		ft_putendl("usage: ARG='4 67 3'; ./push_swap $ARG | ./checker $ARG");
 		return (0);
 	}
-	if (!(ev = ft_memalloc(sizeof(t_ev))))
-		return (-1);
-	ft_bzero(ev, sizeof(ev));
 	if ((ft_error_check(ac, av)) == -1)
 	{
 		ft_putendl_fd("Error", 2);
 		return (-1);
 	}
-	ft_check_flags(ev, av);
+	if (!(ev = ft_memalloc(sizeof(t_ev))))
+		return (-1);
+	ft_bzero(ev, sizeof(ev));
 	if (ft_init_pile(&lst_a, ac, av) == 0)
 		return (-1);
 	ft_pushswap(ev, &lst_a, &lst_b);
-	ft_print_lst_a(lst_a);
-	ft_print_lst_b(lst_b);
+	//ft_print_lst_a(lst_a);
+	//ft_print_lst_b(lst_b);
 	ft_stack_clear(&lst_a);
+	free(ev);
 	return (0);
 }

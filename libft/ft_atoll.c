@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pushswap.c                                      :+:      :+:    :+:   */
+/*   ft_atoll.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/17 12:02:28 by cammapou          #+#    #+#             */
-/*   Updated: 2018/06/14 15:45:03 by cammapou         ###   ########.fr       */
+/*   Created: 2018/05/17 12:00:24 by cammapou          #+#    #+#             */
+/*   Updated: 2018/06/14 12:57:34 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int	ft_pushswap(t_ev *ev, t_list **lst_a, t_list **lst_b)
+long long	  ft_atoll(const char *str)
 {
-	if (ft_check_stack2(*lst_a) == 0)
-		return (0);
-	else if (ft_lstcount(*lst_a) <= 3)
-		ft_algomin(lst_a);
-	else if (ft_lstcount(*lst_a) > 3 && ft_lstcount(*lst_a) <= 30)
-		ft_quick_min(ev, lst_a, lst_b);
-	else 
-		ft_sort(ev, lst_a, lst_b);
-	return (0);
+  long long int i;
+  long long res;
+  int neg;
+
+  i = 0;
+  res = 0;
+  while ((str[i] >= 9 && str[i] <= 13) || (str[i] == 32))
+    i++;
+  neg = i;
+  if (str[i] == '-' || str[i] == '+')
+    i++;
+  while(str[i] >= '0' && str[i] <= '9')
+  {
+    res = res * 10 + (str[i] - 48);
+    i++;
+  }
+  if(str[neg] == '-')
+    return(-res);
+  return(res);
 }

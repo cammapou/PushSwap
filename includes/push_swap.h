@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 
 typedef struct		s_ev
 {
@@ -35,11 +36,13 @@ typedef struct		s_ev
 /*
 **
 */
+int 	ft_check_cr(char **av, int ac);
+
 int					ft_pushswap(t_ev *ev, t_list **lst_a, t_list **lst_b);
 /*
 **				Sort
 */
-void 				ft_sort(t_ev *ev, t_list **lst_a, t_list **lst_b);
+void				ft_sort(t_ev *ev, t_list **lst_a, t_list **lst_b);
 int 				ft_quick(t_ev *ev, t_list **lst_a, t_list **lst_b);
 void 				ft_quick_b1(t_ev *ev, t_list **lst_a, t_list **lst_b);
 int					ft_quick_b1a(t_list **lst_a, t_list **lst_b, int med, int i);
@@ -57,10 +60,12 @@ void				ft_algomin(t_list **lst_a);
 void				ft_small_pa(t_ev *ev, t_list **lst_a, t_list **lst_b);
 void				ft_small_quick(t_ev *ev, t_list **lst_a, t_list **lst_b);
 void				ft_quick_min(t_ev *ev, t_list **lst_a, t_list **lst_b);
-void				ft_suite_pa(t_ev *ev, t_list **lst_a, t_list **lst_b);
+void				ft_suite_pa(t_list **lst_a, t_list **lst_b, int c);
 /*
 **				Utils
 */
+int					ft_alpha(char **av, int ac);
+int 				ft_int(char **av, int ac);
 int					ft_check_med(t_list **lst_a);
 void				ft_check_flags(t_ev *ev, char	**av);
 int					ft_error_check(int ac, char **av);
@@ -72,8 +77,6 @@ void				ft_print_lst_b(t_list *lst_b);
 **				Checker
 */
 int					ft_checker(t_list *lst_a, int ac, char **av);
-int					ft_check_stack(t_list *lst_a);
-int					ft_check_stack2(t_list *lst_a);
 int					ft_checkop(t_list *lst_a, t_list *lst_b, char *buf);
 /*
 **				Instruction
@@ -97,9 +100,9 @@ void				ft_stack_clear(t_list **begin_list);
 int					ft_check_val(t_list *lst_a, int nbr);
 int					ft_minval(t_list	*lst_a);
 int					ft_maxval(t_list *lst_a);
-int					ft_stack_len_b(t_list *lst_b);
-int					ft_stack_len_a(t_list *lst_a);
 int					ft_len_sort(t_list *lst, int nb);
 int					ft_count(t_list *lst, int nb);
-size_t			ft_lstcount(t_list *lst);
+int					ft_check_stack(t_list *lst_a);
+int					ft_check_stack2(t_list *lst_a);
+int					ft_stack_cr(t_list *lst_a);
 #endif

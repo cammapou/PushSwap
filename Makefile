@@ -42,7 +42,7 @@ OBJ_C = $(SRC_C:.c=.o)
 
 LIB = libft/libft.a \
 		printf/libftprintf.a
-
+FLAGS = -Wall -Wextra -Werror
 LIBFT = libft
 PRINTF = printf
 HEADER = -I includes
@@ -61,7 +61,7 @@ C_WARN = "\033[33m"
 all: $(NAME_C) $(NAME_P)
 
  $(NAME_C): $(LIB) $(OBJ_C)
-	@$(CC) $(OBJ_C) -o $(NAME_C) $(LIB)
+	@$(CC) $(OBJ_C) $(FLAGS) -o $(NAME_C) $(LIB)
 
  $(NAME_P): $(LIB) $(OBJ_P)
 	@$(CC) $(CFLAGS) $(OBJ_P) -o $(NAME_P) $(LIB)

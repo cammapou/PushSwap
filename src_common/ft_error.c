@@ -35,31 +35,44 @@ int		ft_check_doublon(char **av)
 	return (0);
 }
 
-int		ft_alpha(char *av)
+int 	ft_int(char **av, int ac)
 {
-	int		i;
-	int		j;
-	int		k;
+	int i;
+ 	long long nb;
+	i = 1;
 
-	j = 0;
-	i = 0;
-	//while (av[j])
-	//{
-		printf("%c\n", av[j]);
-		while (av[i++])
+	while (av[i])
+	{
+		nb = ft_atoll(av[i]);
+		if (nb < INT_MIN || nb > (long long)INT_MAX)
+			return(-1);
+		if (nb > (long long)INT_MAX + 1)
+			return(-1);
+		i++;
+	}
+return (0);
+}
+
+int		ft_alpha(char **av, int ac)
+{
+	int i;
+	int j;
+
+	i = 1;
+	while (av[i])
+	{
+		j = 0;
+		while (av[i][j])
 		{
-			printf("%c\n", av[i]);
-			if ((av[i] >= 'A' && av[i] <= 'Z') || (av[i] >= 'a' && av[i] <= 'z'))
-			{
-				printf("ici\n");
-				return (-1);
-			}
-			//i++;
+			if (!ft_isdigit(av[i][j]) && av[i][j] != '-' && av[i][j] != '+')
+				return (0);
+			if ((av[i][j] == '-' || av[i][j] == '+') && j != 0)
+				return (0);
+			j++;
 		}
-	//	j++;
-	//	i = 1;
-//	}
-	return (0);
+		i++;
+	}
+	return (1);
 }
 
 int		ft_error_check(int ac, char **av)
@@ -68,6 +81,10 @@ int		ft_error_check(int ac, char **av)
 
 	i = 0;
 	if (ft_check_doublon(&av[i]) == -1)
+		return (-1);
+	else if (ft_int(&av[i], ac) == -1)
+		return(-1);
+	else if (!ft_alpha(&av[i], ac))
 		return (-1);
 	return (0);
 }

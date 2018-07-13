@@ -12,17 +12,6 @@
 
 #include "../includes/push_swap.h"
 
-int		ft_check_stack2(t_list *lst_a)
-{
-	while (lst_a->next)
-	{
-		if (*((int*)lst_a->content) > *((int*)lst_a->next->content))
-			return (-1);
-		lst_a = lst_a->next;
-	}
-	return (0);
-}
-
 void 		ft_algomin(t_list **lst_a)
 {
  	while (ft_check_stack2(*lst_a) == -1)
@@ -40,41 +29,43 @@ void 		ft_algomin(t_list **lst_a)
 	}
 }
 
-void	ft_suite_pa(t_ev *ev, t_list **lst_a, t_list **lst_b)
+void	ft_suite_pa(t_list **lst_a, t_list **lst_b, int c)
 {
-	ev->len_b = ft_stack_len_b(*lst_b);
-	while (ev->len_b)
+	c = ft_lstcount(*lst_b);
+	if (ft_lstcount(*lst_a) <= 3)
+		ft_algomin(lst_a);
+	while (c)
 	{
 		ft_pa(lst_a, lst_b);
-		ft_putendl("pa");
-		ev->len_b--;
+		ft_printf("pa\n");
+		c--;
 	}
 }
 
 void	ft_quick_min(t_ev *ev, t_list **lst_a, t_list **lst_b)
 {
-	while (1)
-	{
-		while (ft_check_val(*lst_a, ev->med) == -1)
+	int		c;
+	int		min;
+
+	min = ft_minval(*lst_a);
+	c = ft_check_val(*lst_a, min + ((ft_maxval(*lst_a) - min)));
+	while (c && ft_check_stack2(*lst_a) == -1)
+		if (*((int*)(*lst_a)->content) == min)
 		{
-			ev->len_a = ft_stack_len_a(*lst_a);
-			if (*(int*)(*lst_a)->content < ev->med)
-			{
-				ft_pb(lst_a, lst_b);
-				ft_printf("pb\n");
-			}
-			else
-			{
-				ft_ra(lst_a);
-				ft_printf("ra\n");
-			}
+			ft_pb(lst_a, lst_b);
+			ft_printf("pb\n");
+			min = ft_minval(*lst_a);
+			c--;
 		}
-		if (ev->len_a == 3)
+		else if (ft_len_sort(*lst_a, min) >= 0)
 		{
-			ft_algomin(lst_a);
-			break ;
+			ft_ra(lst_a);
+			ft_printf("rra\n");
 		}
-		ev->med++;
-	}
-	ft_suite_pa(ev, lst_a, lst_b);
+		else
+		{
+			ft_rra(lst_a);
+			ft_printf("ra\n");
+		}
+	ft_suite_pa(lst_a, lst_b, c);
 }

@@ -26,20 +26,6 @@ int		ft_check_val(t_list *lst_a, int nbr)
 	return (0);
 }
 
-int		ft_check_val2(t_list *lst_b, int nbr)
-{
-	int	*nbr_tmp;
-
-	while (lst_b)
-	{
-		nbr_tmp = (int*)lst_b->content;
-		if (*nbr_tmp > nbr)
-			return (-1);
-		lst_b = lst_b->next;
-	}
-	return (0);
-}
-
 int		ft_check_med(t_list **lst_a)
 {
 	int	min;
@@ -61,19 +47,4 @@ void	ft_stack_clear(t_list **begin_list)
 		free(*begin_list);
 		*begin_list = NULL;
 	}
-}
-
-size_t		ft_lstcount(t_list *lst)
-{
-	size_t	count;
-
-	count = 0;
-	if (lst == NULL)
-		return (0);
-	while (lst)
-	{
-		lst = lst->next;
-		count++;
-	}
-	return (count);
 }

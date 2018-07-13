@@ -41,7 +41,7 @@ void		ft_select_b3(t_list **lst_a, t_list **lst_b)
 
 int ft_quick_b3(t_ev *ev, t_list **lst_a, t_list **lst_b, int med, int i)
 {
-	while (ft_check_stack2(*lst_b) == 0)
+	while (ft_check_stack2(*lst_b) == -1)
 		while (ft_lstcount(*lst_b) - ft_count(*lst_b, (med = ft_minval(*lst_b) + \
 			((ft_maxval(*lst_b) - ft_minval(*lst_b)) / 2))) && !ft_check(*lst_b))
 					if (*(int*)(*lst_b)->content > med)

@@ -94,5 +94,6 @@ int					*ft_range(int min, int max);
 char				*ft_strndup(const char *s, size_t n);
 void				ft_swap(int *a, int *b);
 char				*ft_strdeljoin(char *s1, char *s2);
-
+long long		ft_atoll(const char *str);
+size_t			ft_lstcount(t_list *lst);
 #endif

@@ -77,6 +77,8 @@ SRC =	ft_atoi.c \
 		ft_create_elem.c\
 		ft_strdeljoin.c \
 		ft_lstrev.c \
+		ft_atoll.c \
+		ft_lstcount.c \
 		get_next_line.c
 
 RM = rm -f

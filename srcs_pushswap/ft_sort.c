@@ -47,7 +47,7 @@ int ft_quick(t_ev *ev, t_list **lst_a, t_list **lst_b)
 		ev->med = ft_check_med(lst_a);
 		while (ft_check_val(*lst_a, ev->med) == -1)
 		{
-			if (ft_stack_len_a(*lst_a) == 2)
+			if (ft_lstcount(*lst_a) == 2)
 				break;
 			if (*(int*)(*lst_a)->content < ev->med)
 			{
@@ -60,7 +60,7 @@ int ft_quick(t_ev *ev, t_list **lst_a, t_list **lst_b)
 				ft_printf("ra\n");
 			}
 		}
-		if (ft_stack_len_a(*lst_a) == 2)
+		if (ft_lstcount(*lst_a) == 2)
 		{
 			ft_algomin(lst_a);
 			break;

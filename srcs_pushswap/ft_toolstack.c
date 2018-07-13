@@ -40,43 +40,24 @@ int		ft_maxval(t_list *lst)
 	return (max);
 }
 
-int		ft_stack_len_b(t_list *lst_b)
-{
-	size_t	len;
-
-	len = 0;
-	while (lst_b)
-	{
-		len++;
-		lst_b = lst_b->next;
-	}
-	return (len);
-	if (len == 0)
-		return (0);
-}
-
-int		ft_stack_len_a(t_list *lst_a)
-{
-	int		len;
-
-	len = 0;
-	while (lst_a)
-	{
-		len++;
-		lst_a = lst_a->next;
-	}
-	return (len);
-	if (len == 0)
-		return (0);
-}
-
 int		ft_check_stack(t_list *lst_a)
 {
 	while (lst_a->next)
 	{
-		if ((*(int*)lst_a->next->content) > (*(int*)lst_a->content))
+		if ((*(int*)lst_a->content) < (*(int*)lst_a->next->content))
 				return (0);
 		lst_a = lst_a->next;
 	}
-	return (1);
+	return (-1);
+}
+
+int		ft_check_stack2(t_list *lst_a)
+{
+	while (lst_a->next)
+	{
+		if (*((int*)lst_a->content) > *((int*)lst_a->next->content))
+			return (-1);
+		lst_a = lst_a->next;
+	}
+	return (0);
 }
