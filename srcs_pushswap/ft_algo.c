@@ -6,7 +6,7 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/06 14:54:12 by cammapou          #+#    #+#             */
-/*   Updated: 2018/07/17 17:45:55 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/07/17 19:22:17 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	ft_sort(t_ev *ev, t_list **lst_a, t_list **lst_b)
 		ft_quick_b1c(lst_a, lst_b, med, i);
 	}
 	else
-		ft_quick_b2(ev, lst_a, lst_b, med, 0);
+		ft_quick_b2(lst_a, lst_b, med, 0);
 	ft_select_b1(ev, lst_a, lst_b);
-	ft_quick_b3(ev, lst_a, lst_b, med, 0);
+	ft_quick_b3(lst_a, lst_b, med, 0);
 	med = ft_minval(*lst_b) + ((ft_maxval(*lst_b) - ft_minval(*lst_b)) / 2);
 	if (ft_lstcount(*lst_a) + ft_lstcount(*lst_b) > 101)
 	{
@@ -37,6 +37,6 @@ void	ft_sort(t_ev *ev, t_list **lst_a, t_list **lst_b)
 		ft_quick_b1c(lst_a, lst_b, med, i);
 	}
 	else
-		ft_quick_b4(ev, lst_a, lst_b, med, 0);
+		ft_quick_b4(lst_a, lst_b, med, 0);
 	ft_select_b3(lst_a, lst_b);
 }

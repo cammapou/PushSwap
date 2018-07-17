@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort.c                                      :+:      :+:    :+:   */
+/*   ft_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cammapou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/17 12:02:28 by cammapou          #+#    #+#             */
-/*   Updated: 2018/06/14 15:45:03 by cammapou         ###   ########.fr       */
+/*   Created: 2018/07/17 19:17:48 by cammapou          #+#    #+#             */
+/*   Updated: 2018/07/17 19:20:34 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void ft_quick_b2(t_ev *ev, t_list **lst_a, t_list **lst_b, int med, int i)
+void	ft_quick_b2(t_list **lst_a, t_list **lst_b, int med, int i)
 {
 	med = med + ((ft_maxval(*lst_b) - med) / 2);
 	while ((ft_lstcount(*lst_b) - ft_count(*lst_b, med)) / 2)
@@ -39,9 +39,9 @@ void ft_quick_b2(t_ev *ev, t_list **lst_a, t_list **lst_b, int med, int i)
 	}
 }
 
-int ft_quick(t_ev *ev, t_list **lst_a, t_list **lst_b)
+int		ft_quick(t_ev *ev, t_list **lst_a, t_list **lst_b)
 {
-	ev->med2 = ft_minval(*lst_a) + ((ft_maxval(*lst_a) - ft_minval(*lst_a)) / 2);
+	ev->md = ft_minval(*lst_a) + ((ft_maxval(*lst_a) - ft_minval(*lst_a)) / 2);
 	while(1)
 	{
 		ev->med = ft_check_med(lst_a);
@@ -67,7 +67,7 @@ int ft_quick(t_ev *ev, t_list **lst_a, t_list **lst_b)
 		}
 	}
 	ft_quick_b1(ev, lst_a, lst_b);
-	return (ev->med2);
+	return (ev->md);
 }
 
 int		ft_quick_b1a(t_list **lst_a, t_list **lst_b, int med, int i)

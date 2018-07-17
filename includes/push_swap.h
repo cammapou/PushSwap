@@ -6,7 +6,7 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 12:48:10 by cammapou          #+#    #+#             */
-/*   Updated: 2018/07/17 17:42:46 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/07/17 19:20:15 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef	struct		s_ev
 	int				len_b;
 	int				max;
 	int				med;
-	int				med2;
+	int				md;
 	int				*min;
 }					t_ev;
 
@@ -47,11 +47,11 @@ int					ft_quick_b1b(t_list **lst_a, t_list **lst_b, int med,
 					int i);
 void				ft_quick_b1c(t_list **lst_a, t_list **lst_b, int med,
 					int i);
-void				ft_quick_b2(t_ev *ev, t_list **lst_a, t_list **lst_b, int med, int i);
+void				ft_quick_b2(t_list **lst_a, t_list **lst_b, int med, int i);
 void				ft_select_b1(t_ev *ev, t_list **lst_a, t_list **lst_b);
-int					ft_quick_b3(t_ev *ev, t_list **lst_a, t_list **lst_b,
+int					ft_quick_b3(t_list **lst_a, t_list **lst_b,
 					int med, int i);
-void				ft_quick_b4(t_ev *ev, t_list **lst_a, t_list **lst_b,
+void				ft_quick_b4(t_list **lst_a, t_list **lst_b,
 					int med, int i);
 void				ft_select_b3(t_list **lst_a, t_list **lst_b);
 /*
