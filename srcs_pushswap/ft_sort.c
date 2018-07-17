@@ -41,7 +41,6 @@ void	ft_quick_b2(t_list **lst_a, t_list **lst_b, int med, int i)
 
 int		ft_quick(t_ev *ev, t_list **lst_a, t_list **lst_b)
 {
-	ev->md = ft_minval(*lst_a) + ((ft_maxval(*lst_a) - ft_minval(*lst_a)) / 2);
 	while(1)
 	{
 		ev->med = ft_check_med(lst_a);
@@ -66,11 +65,10 @@ int		ft_quick(t_ev *ev, t_list **lst_a, t_list **lst_b)
 			break;
 		}
 	}
-	ft_quick_b1(ev, lst_a, lst_b);
 	return (ev->md);
 }
 
-int		ft_quick_b1a(t_list **lst_a, t_list **lst_b, int med, int i)
+int		ft_quickb1a(t_list **lst_a, t_list **lst_b, int med, int i)
 {
 	med = med + ((ft_maxval(*lst_b) - med) / 2);
 	while ((ft_lstcount(*lst_b) - ft_count(*lst_b, med)) / 2)
@@ -93,7 +91,7 @@ int		ft_quick_b1a(t_list **lst_a, t_list **lst_b, int med, int i)
 	return (i);
 }
 
-int		ft_quick_b1b(t_list **lst_a, t_list **lst_b, int med, int i)
+int		ft_quickb1b(t_list **lst_a, t_list **lst_b, int med, int i)
 {
 	med = med + ((ft_maxval(*lst_b) - med) / 4);
 	while ((ft_lstcount(*lst_b) - ft_count(*lst_b, med)) / 2)
@@ -116,7 +114,7 @@ int		ft_quick_b1b(t_list **lst_a, t_list **lst_b, int med, int i)
 	return (i);
 }
 
-void		ft_quick_b1c(t_list **lst_a, t_list **lst_b, int med, int i)
+void		ft_quickb1c(t_list **lst_a, t_list **lst_b, int med, int i)
 {
 	med = med + ((ft_maxval(*lst_b) - med) / 8);
 	while ((ft_lstcount(*lst_b) - ft_count(*lst_b, med)) / 2)

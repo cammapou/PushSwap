@@ -39,7 +39,7 @@ void		ft_select_b3(t_list **lst_a, t_list **lst_b)
 		}
 }
 
-int		ft_quick_b3(t_list **lst_a, t_list **lst_b, int med, int i)
+void	ft_quick_b3(t_list **lst_a, t_list **lst_b, int med, int i)
 {
 	while (ft_check_stack2(*lst_b) == -1)
 		while (ft_lstcount(*lst_b) - ft_count(*lst_b, (med = ft_minval(*lst_b) +
@@ -66,7 +66,6 @@ int		ft_quick_b3(t_list **lst_a, t_list **lst_b, int med, int i)
 		ft_pb(lst_a, lst_b);
 		ft_printf("pb\n");
 	}
-	return (i);
 }
 
 void	ft_select_b1(t_ev *ev, t_list **lst_a, t_list **lst_b)

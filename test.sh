@@ -1,10 +1,9 @@
 #!/bin/bash
-
-echo '\033[0mTesting validity a Hundred Times in a range from 0 to 4'
+echo '\033[0mTesting validity a Hundred Times in a range from 0 to 3'
 ERR=0
 for i in range {1..99}
 do
-	ARG=`ruby -e "puts (0..4).to_a.shuffle.join(' ')"`
+	ARG=`ruby -e "puts (1..3).to_a.shuffle.join(' ')"`
 	RET=`./push_swap $ARG | ./checker $ARG`
 	if [ "$RET" != "OK" ];
 	then
@@ -22,6 +21,27 @@ else
 	echo "\033[0;31m Fail $ERR / 100"
 fi
 
+echo '\033[0mTesting validity a Hundred Times in a range from -3 to 0'
+ERR=0
+for i in range {1..99}
+do
+	ARG=`ruby -e "puts (-3..0).to_a.shuffle.join(' ')"`
+	RET=`./push_swap $ARG | ./checker $ARG`
+	if [ "$RET" != "OK" ];
+	then
+		((ERR++))
+		printf '\033[0;31m▓\033[0;0m'
+	else
+		printf '\033[0;32m▓\033[0;0m'
+	fi
+done
+
+if [ $ERR -eq 0 ];
+then
+	echo '\033[0;32m Success'
+else
+	echo "\033[0;31m Fail $ERR / 100"
+fi
 
 echo '\033[0mTesting length a Hundred Times in a range from 0 to 4 '
 ERR=0
@@ -142,6 +162,28 @@ then
 	rm res
 fi
 
+echo '\033[0mTesting a Hundred Times in a range from -250 to 249'
+ERR=0
+for i in range {1..99}
+do
+	ARG=`ruby -e "puts (-250..249).to_a.shuffle.join(' ')"`
+	RET=`./push_swap $ARG | ./checker $ARG`
+	if [ "$RET" != "OK" ];
+	then
+		((ERR++))
+		printf '\033[0;31m▓\033[0;0m'
+	else
+		printf '\033[0;32m▓\033[0;0m'
+	fi
+done
+
+if [ $ERR -eq 0 ];
+then
+	echo '\033[0;32m Success'
+else
+	echo "\033[0;31m Fail $ERR / 100"
+fi
+
 echo '\033[0mGetting an average in a range from 0 to 99'
 ERR=0
 for i in range {1..99}
@@ -162,3 +204,4 @@ do
 done
 
 ./tester res
+rm res

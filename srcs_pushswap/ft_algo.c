@@ -18,12 +18,14 @@ void	ft_sort(t_ev *ev, t_list **lst_a, t_list **lst_b)
 	int i;
 
 	i = 0;
-	med = ft_quick(ev, lst_a, lst_b);
+	med = ft_minval(*lst_a) + ((ft_maxval(*lst_a) - ft_minval(*lst_a)) / 2);
+	ft_quick(ev, lst_a, lst_b);
+	ft_quick_b1(ev, lst_a, lst_b);
 	if (ft_lstcount(*lst_a) + ft_lstcount(*lst_b) > 101)
 	{
-		i = ft_quick_b1a(lst_a, lst_b, med, 0);
-		i = ft_quick_b1b(lst_a, lst_b, med, i);
-		ft_quick_b1c(lst_a, lst_b, med, i);
+		i = ft_quickb1a(lst_a, lst_b, med, 0);
+		i = ft_quickb1b(lst_a, lst_b, med, i);
+		ft_quickb1c(lst_a, lst_b, med, i);
 	}
 	else
 		ft_quick_b2(lst_a, lst_b, med, 0);
@@ -32,9 +34,9 @@ void	ft_sort(t_ev *ev, t_list **lst_a, t_list **lst_b)
 	med = ft_minval(*lst_b) + ((ft_maxval(*lst_b) - ft_minval(*lst_b)) / 2);
 	if (ft_lstcount(*lst_a) + ft_lstcount(*lst_b) > 101)
 	{
-		i = ft_quick_b1a(lst_a, lst_b, med, 0);
-		i = ft_quick_b1b(lst_a, lst_b, med, i);
-		ft_quick_b1c(lst_a, lst_b, med, i);
+		i = ft_quickb1a(lst_a, lst_b, med, 0);
+		i = ft_quickb1b(lst_a, lst_b, med, i);
+		ft_quickb1c(lst_a, lst_b, med, i);
 	}
 	else
 		ft_quick_b4(lst_a, lst_b, med, 0);

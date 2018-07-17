@@ -41,18 +41,14 @@ int					ft_pushswap(t_ev *ev, t_list **lst_a, t_list **lst_b);
 void				ft_sort(t_ev *ev, t_list **lst_a, t_list **lst_b);
 int					ft_quick(t_ev *ev, t_list **lst_a, t_list **lst_b);
 void				ft_quick_b1(t_ev *ev, t_list **lst_a, t_list **lst_b);
-int					ft_quick_b1a(t_list **lst_a, t_list **lst_b, int med,
+int					ft_quickb1a(t_list **lst_a, t_list **lst_b, int med,
 					int i);
-int					ft_quick_b1b(t_list **lst_a, t_list **lst_b, int med,
-					int i);
-void				ft_quick_b1c(t_list **lst_a, t_list **lst_b, int med,
-					int i);
+int					ft_quickb1b(t_list **lst_a, t_list **lst_b, int med, int i);
+void				ft_quickb1c(t_list **lst_a, t_list **lst_b, int med, int i);
 void				ft_quick_b2(t_list **lst_a, t_list **lst_b, int med, int i);
 void				ft_select_b1(t_ev *ev, t_list **lst_a, t_list **lst_b);
-int					ft_quick_b3(t_list **lst_a, t_list **lst_b,
-					int med, int i);
-void				ft_quick_b4(t_list **lst_a, t_list **lst_b,
-					int med, int i);
+void				ft_quick_b3(t_list **lst_a, t_list **lst_b, int med, int i);
+void				ft_quick_b4(t_list **lst_a, t_list **lst_b, int med, int i);
 void				ft_select_b3(t_list **lst_a, t_list **lst_b);
 /*
 **				Algo_min
