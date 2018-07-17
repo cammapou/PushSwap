@@ -6,7 +6,7 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 12:48:10 by cammapou          #+#    #+#             */
-/*   Updated: 2018/06/14 19:25:39 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/07/17 17:42:46 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,36 +20,39 @@
 # include <stdlib.h>
 # include <limits.h>
 
-typedef struct		s_ev
+typedef	struct		s_ev
 {
 	int				*tmp;
 	int				len_a;
 	int				len_b;
 	int				max;
 	int				med;
-	int 			med2;
+	int				med2;
 	int				*min;
-	int				flagV;
-	int				flagC;
 }					t_ev;
 
 /*
-**
+**				Push_Swap
 */
 int					ft_pushswap(t_ev *ev, t_list **lst_a, t_list **lst_b);
 /*
 **				Sort
 */
 void				ft_sort(t_ev *ev, t_list **lst_a, t_list **lst_b);
-int 				ft_quick(t_ev *ev, t_list **lst_a, t_list **lst_b);
-void 				ft_quick_b1(t_ev *ev, t_list **lst_a, t_list **lst_b);
-int					ft_quick_b1a(t_list **lst_a, t_list **lst_b, int med, int i);
-int					ft_quick_b1b(t_list **lst_a, t_list **lst_b, int med, int i);
-void				ft_quick_b1c(t_list **lst_a, t_list **lst_b, int med, int i);
-void 				ft_quick_b2(t_ev *ev, t_list **lst_a, t_list **lst_b, int med, int i);
-void 				ft_select_b1(t_ev *ev, t_list **lst_a, t_list **lst_b);
-int 				ft_quick_b3(t_ev *ev, t_list **lst_a, t_list **lst_b, int med, int i);
-void 				ft_quick_b4(t_ev *ev, t_list **lst_a, t_list **lst_b, int med, int i);
+int					ft_quick(t_ev *ev, t_list **lst_a, t_list **lst_b);
+void				ft_quick_b1(t_ev *ev, t_list **lst_a, t_list **lst_b);
+int					ft_quick_b1a(t_list **lst_a, t_list **lst_b, int med,
+					int i);
+int					ft_quick_b1b(t_list **lst_a, t_list **lst_b, int med,
+					int i);
+void				ft_quick_b1c(t_list **lst_a, t_list **lst_b, int med,
+					int i);
+void				ft_quick_b2(t_ev *ev, t_list **lst_a, t_list **lst_b, int med, int i);
+void				ft_select_b1(t_ev *ev, t_list **lst_a, t_list **lst_b);
+int					ft_quick_b3(t_ev *ev, t_list **lst_a, t_list **lst_b,
+					int med, int i);
+void				ft_quick_b4(t_ev *ev, t_list **lst_a, t_list **lst_b,
+					int med, int i);
 void				ft_select_b3(t_list **lst_a, t_list **lst_b);
 /*
 **				Algo_min
@@ -63,7 +66,7 @@ void				ft_suite_pa(t_list **lst_a, t_list **lst_b, int c);
 **				Utils
 */
 int					ft_alpha(char **av, int ac);
-int 				ft_int(char **av, int ac);
+int					ft_int(char **av, int ac);
 int					ft_check_med(t_list **lst_a);
 int					ft_error_check(int ac, char **av);
 int					ft_check_doublon(char **av);

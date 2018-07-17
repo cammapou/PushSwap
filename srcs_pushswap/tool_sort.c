@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tool_sort.c                                          :+:      :+:    :+:   */
+/*   tool_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cammapou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 14:54:12 by cammapou          #+#    #+#             */
-/*   Updated: 2018/06/14 19:50:27 by cammapou         ###   ########.fr       */
+/*   Created: 2018/07/17 17:05:34 by cammapou          #+#    #+#             */
+/*   Updated: 2018/07/17 17:05:53 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_check(t_list *lst)
+int		ft_check(t_list *lst)
 {
 	while (lst->next)
 	{
@@ -23,7 +23,7 @@ int	ft_check(t_list *lst)
 	return (1);
 }
 
-int	ft_len_sort(t_list *lst, int nb)
+int		ft_len_sort(t_list *lst, int nb)
 {
 	int		i;
 	int		c;
@@ -50,9 +50,9 @@ int	ft_len_sort(t_list *lst, int nb)
 	return (k - c);
 }
 
-int	ft_count(t_list *lst, int nb)
+int		ft_count(t_list *lst, int nb)
 {
-	int	count;
+	int		count;
 
 	count = 0;
 	while (lst)

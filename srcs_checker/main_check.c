@@ -6,7 +6,7 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 12:42:55 by cammapou          #+#    #+#             */
-/*   Updated: 2018/06/14 13:13:30 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/07/17 16:40:19 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		main(int ac, char **av)
 {
 	t_list	*lst_a;
-	
+
 	if (ac == 1)
 		return (-1);
 	if (ft_error_check(ac, av) == -1)
@@ -27,7 +27,5 @@ int		main(int ac, char **av)
 		return (-1);
 	}
 	ft_checker(lst_a, ac, av);
-
-	//ft_print_lst_a(lst_a);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 12:02:28 by cammapou          #+#    #+#             */
-/*   Updated: 2018/06/14 15:45:03 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/07/17 16:44:59 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_pushswap(t_ev *ev, t_list **lst_a, t_list **lst_b)
 		ft_algomin(lst_a);
 	else if (ft_lstcount(*lst_a) > 3 && ft_lstcount(*lst_a) <= 30)
 		ft_quick_min(ev, lst_a, lst_b);
-	else 
+	else
 		ft_sort(ev, lst_a, lst_b);
 	return (0);
 }

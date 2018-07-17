@@ -6,7 +6,7 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 12:02:28 by cammapou          #+#    #+#             */
-/*   Updated: 2018/06/14 19:48:14 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/07/17 17:04:44 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		ft_check_stack(t_list *lst_a)
 	while (lst_a->next)
 	{
 		if ((*(int*)lst_a->content) < (*(int*)lst_a->next->content))
-				return (0);
+			return (0);
 		lst_a = lst_a->next;
 	}
 	return (-1);

@@ -6,7 +6,7 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 12:42:55 by cammapou          #+#    #+#             */
-/*   Updated: 2018/06/14 13:15:06 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/07/17 16:42:18 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		ft_stack_cr(t_list *lst_a)
 	}
 	return (0);
 }
+
 int		ft_checkop(t_list *lst_a, t_list *lst_b, char *buf)
 {
 	ft_strcmp(buf, "sa") == 0 ? ft_sa(&lst_a) : 0;
@@ -46,7 +47,7 @@ int		ft_checkop(t_list *lst_a, t_list *lst_b, char *buf)
 int		ft_checker(t_list *lst_a, int ac, char **av)
 {
 	char		*buf;
-	t_list	*lst_b;
+	t_list		*lst_b;
 
 	lst_b = NULL;
 	buf = NULL;

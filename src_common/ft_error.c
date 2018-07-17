@@ -6,7 +6,7 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 12:00:24 by cammapou          #+#    #+#             */
-/*   Updated: 2018/06/14 12:57:34 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/07/17 16:36:56 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,22 @@ int		ft_check_doublon(char **av)
 	return (0);
 }
 
-int 	ft_int(char **av, int ac)
+int		ft_int(char **av, int ac)
 {
-	int i;
- 	long long nb;
-	i = 1;
+	int			i;
+	long long	nb;
 
+	i = 1;
 	while (av[i])
 	{
 		nb = ft_atoll(av[i]);
 		if (nb < INT_MIN || nb > (long long)INT_MAX)
-			return(-1);
+			return (-1);
 		if (nb > (long long)INT_MAX + 1)
-			return(-1);
+			return (-1);
 		i++;
 	}
-return (0);
+	return (0);
 }
 
 int		ft_alpha(char **av, int ac)
@@ -77,13 +77,13 @@ int		ft_alpha(char **av, int ac)
 
 int		ft_error_check(int ac, char **av)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	if (ft_check_doublon(&av[i]) == -1)
 		return (-1);
 	else if (ft_int(&av[i], ac) == -1)
-		return(-1);
+		return (-1);
 	else if (!ft_alpha(&av[i], ac))
 		return (-1);
 	return (0);

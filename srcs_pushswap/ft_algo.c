@@ -6,19 +6,18 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/06 14:54:12 by cammapou          #+#    #+#             */
-/*   Updated: 2018/06/14 19:50:27 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/07/17 17:45:55 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void ft_sort(t_ev *ev, t_list **lst_a, t_list **lst_b)
+void	ft_sort(t_ev *ev, t_list **lst_a, t_list **lst_b)
 {
 	int med;
 	int i;
 
 	i = 0;
-
 	med = ft_quick(ev, lst_a, lst_b);
 	if (ft_lstcount(*lst_a) + ft_lstcount(*lst_b) > 101)
 	{

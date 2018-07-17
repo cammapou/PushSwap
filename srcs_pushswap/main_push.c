@@ -6,7 +6,7 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 12:42:55 by cammapou          #+#    #+#             */
-/*   Updated: 2018/06/14 19:12:41 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/07/17 16:51:30 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ int		main(int ac, char **av)
 	//ft_print_lst_a(lst_a);
 	//ft_print_lst_b(lst_b);
 	ft_stack_clear(&lst_a);
-	free(ev);
+	//free(ev);
 	return (0);
 }

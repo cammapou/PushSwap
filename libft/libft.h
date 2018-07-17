@@ -6,7 +6,7 @@
 /*   By: cammapou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 11:47:52 by cammapou          #+#    #+#             */
-/*   Updated: 2018/06/14 12:06:00 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/07/17 16:31:56 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,6 @@ int					*ft_range(int min, int max);
 char				*ft_strndup(const char *s, size_t n);
 void				ft_swap(int *a, int *b);
 char				*ft_strdeljoin(char *s1, char *s2);
-long long		ft_atoll(const char *str);
-size_t			ft_lstcount(t_list *lst);
+long long			ft_atoll(const char *str);
+size_t				ft_lstcount(t_list *lst);
 #endif
