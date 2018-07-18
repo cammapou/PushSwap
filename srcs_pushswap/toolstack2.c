@@ -6,7 +6,7 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 12:02:28 by cammapou          #+#    #+#             */
-/*   Updated: 2018/06/14 19:00:03 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/07/18 18:49:57 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,4 @@ int		ft_check_med(t_list **lst_a)
 	min = ft_minval(*lst_a);
 	med = min + (max - min) / 2;
 	return (med);
-}
-
-void	ft_stack_clear(t_list **begin_list)
-{
-	if (*begin_list != NULL)
-	{
-		ft_stack_clear(&((*begin_list)->next));
-		free(*begin_list);
-		*begin_list = NULL;
-	}
 }

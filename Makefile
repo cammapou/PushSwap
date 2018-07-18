@@ -6,7 +6,7 @@
 #    By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/03 14:18:21 by cammapou          #+#    #+#              #
-#    Updated: 2018/06/14 13:11:56 by cammapou         ###   ########.fr        #
+#    Updated: 2018/07/18 15:13:08 by cammapou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC_P = srcs_pushswap/main_push.c \
 		srcs_checker/checker.c \
 		srcs_pushswap/algo_min.c \
 		srcs_pushswap/tool_sort.c \
+		srcs_pushswap/ft_algo_suite.c \
 		src_common/ft_error.c
 
 OBJ_P = $(SRC_P:.c=.o)

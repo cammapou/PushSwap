@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cammapou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 19:17:48 by cammapou          #+#    #+#             */
-/*   Updated: 2018/07/17 19:20:34 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/07/18 18:48:55 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ void	ft_quick_b2(t_list **lst_a, t_list **lst_b, int med, int i)
 
 int		ft_quick(t_ev *ev, t_list **lst_a, t_list **lst_b)
 {
-	while(1)
+	while (1)
 	{
 		ev->med = ft_check_med(lst_a);
 		while (ft_check_val(*lst_a, ev->med) == -1)
 		{
 			if (ft_lstcount(*lst_a) == 2)
-				break;
+				break ;
 			if (*(int*)(*lst_a)->content < ev->med)
 			{
 				ft_pb(lst_a, lst_b);
@@ -62,7 +62,7 @@ int		ft_quick(t_ev *ev, t_list **lst_a, t_list **lst_b)
 		if (ft_lstcount(*lst_a) == 2)
 		{
 			ft_algomin(lst_a);
-			break;
+			break ;
 		}
 	}
 	return (ev->md);
@@ -114,7 +114,7 @@ int		ft_quickb1b(t_list **lst_a, t_list **lst_b, int med, int i)
 	return (i);
 }
 
-void		ft_quickb1c(t_list **lst_a, t_list **lst_b, int med, int i)
+void	ft_quickb1c(t_list **lst_a, t_list **lst_b, int med, int i)
 {
 	med = med + ((ft_maxval(*lst_b) - med) / 8);
 	while ((ft_lstcount(*lst_b) - ft_count(*lst_b, med)) / 2)

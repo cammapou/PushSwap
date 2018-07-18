@@ -6,13 +6,13 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 12:02:28 by cammapou          #+#    #+#             */
-/*   Updated: 2018/07/17 19:16:41 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/07/18 18:51:18 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void		ft_select_b3(t_list **lst_a, t_list **lst_b)
+void	ft_select_b3(t_list **lst_a, t_list **lst_b)
 {
 	int		c;
 	int		max;

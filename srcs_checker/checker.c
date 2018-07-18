@@ -6,11 +6,21 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 12:42:55 by cammapou          #+#    #+#             */
-/*   Updated: 2018/07/17 16:42:18 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/07/18 18:55:09 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	ft_stack_clear(t_list **begin_list)
+{
+	if (*begin_list != NULL)
+	{
+		free(*begin_list);
+		*begin_list = NULL;
+		ft_stack_clear(&((*begin_list)->next));
+	}
+}
 
 int		ft_stack_cr(t_list *lst_a)
 {

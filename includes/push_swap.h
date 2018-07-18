@@ -6,7 +6,7 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 12:48:10 by cammapou          #+#    #+#             */
-/*   Updated: 2018/07/17 19:20:15 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/07/18 18:52:11 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef	struct		s_ev
 	int				max;
 	int				med;
 	int				md;
+	int				i;
 	int				*min;
 }					t_ev;
 
@@ -35,14 +36,15 @@ typedef	struct		s_ev
 **				Push_Swap
 */
 int					ft_pushswap(t_ev *ev, t_list **lst_a, t_list **lst_b);
+
 /*
 **				Sort
 */
 void				ft_sort(t_ev *ev, t_list **lst_a, t_list **lst_b);
+void				ft_algo_suite(t_ev *ev, t_list **lst_a, t_list **lst_b);
 int					ft_quick(t_ev *ev, t_list **lst_a, t_list **lst_b);
 void				ft_quick_b1(t_ev *ev, t_list **lst_a, t_list **lst_b);
-int					ft_quickb1a(t_list **lst_a, t_list **lst_b, int med,
-					int i);
+int					ft_quickb1a(t_list **lst_a, t_list **lst_b, int med, int i);
 int					ft_quickb1b(t_list **lst_a, t_list **lst_b, int med, int i);
 void				ft_quickb1c(t_list **lst_a, t_list **lst_b, int med, int i);
 void				ft_quick_b2(t_list **lst_a, t_list **lst_b, int med, int i);
