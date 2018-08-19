@@ -1,41 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_check.c                                       :+:      :+:    :+:   */
+/*   instruction3.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/03 12:32:53 by cammapou          #+#    #+#             */
-/*   Updated: 2018/08/01 17:39:29 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/07/26 13:16:07 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int				main(int ac, char **av)
+void	rra(t_list **lst_a)
 {
-	t_list		*lst;
-	int			*tmp;
+	t_list	*tmp;
 
-	if ((error_check(av)) == -1)
+	tmp = *lst_a;
+	if (ft_lstcount(*lst_a) > 1)
 	{
-		ft_putendl_fd("Error", 2);
-		return (-1);
-	}
-	if ((((tmp = (int*)malloc(sizeof(int *))) == NULL)))
-		ft_putendl("Error");
-	if (ac > 1)
-	{
-		*tmp = ft_atoi(av[--ac]);
-		lst = ft_lstnew(tmp, sizeof(int));
-		while (ac-- > 1)
-		{
-			*tmp = ft_atoi(av[ac]);
-			ft_lstaddend(&lst, ft_lstnew(tmp, sizeof(int)));
-		}
-		checker(&lst);
-		ft_lstdel(&lst, del);
+		ft_lstaddend(lst_a, ft_lstnew(((tmp)->content), sizeof(int)));
+		free(tmp->content);
+		tmp->content = NULL;
+		*lst_a = (*lst_a)->next;
 		free(tmp);
+		tmp = NULL;
 	}
-	return (0);
+}
+
+void	rrb(t_list **lst_b)
+{
+	t_list	*tmp;
+
+	tmp = *lst_b;
+	if (ft_lstcount(*lst_b) > 1)
+	{
+		ft_lstaddend(lst_b, ft_lstnew(((tmp)->content), sizeof(int)));
+		free(tmp->content);
+		tmp->content = NULL;
+		*lst_b = (*lst_b)->next;
+		free(tmp);
+		tmp = NULL;
+	}
+}
+
+void	rrr(t_list **lst_a, t_list **lst_b)
+{
+	rra(lst_a);
+	rra(lst_b);
 }

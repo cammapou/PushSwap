@@ -6,66 +6,85 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/14 10:57:30 by cammapou          #+#    #+#             */
-/*   Updated: 2018/07/18 18:35:50 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/08/06 18:02:49 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_algomin(t_list **lst_a)
+static int		check_stack2(t_list *lst_a)
 {
-	while (ft_check_stack2(*lst_a) == -1)
+	while (lst_a->next)
 	{
-		if (*((int*)(*lst_a)->content) > *((int*)(*lst_a)->next->content))
+		if (*((int*)lst_a->content) < *((int*)lst_a->next->content))
+			return (-1);
+		lst_a = lst_a->next;
+	}
+	return (0);
+}
+
+void			algomin(t_list **lst_a)
+{
+	while (check_stack2(*lst_a) == -1)
+	{
+		if (lastval(*lst_a) > blastval(*lst_a))
 		{
-			ft_sa(lst_a);
+			sa(lst_a);
 			ft_putendl("sa");
 		}
 		else
 		{
-			ft_rra(lst_a);
+			rra(lst_a);
 			ft_putendl("rra");
 		}
 	}
 }
 
-void	ft_suite_pa(t_list **lst_a, t_list **lst_b, int c)
+static void		suite_pa(t_list **lst_a, t_list **lst_b)
 {
+	int c ;
+
 	c = ft_lstcount(*lst_b);
+	if (lastval(*lst_b) < blastval(*lst_b))
+	{
+		sb(lst_b);
+		ft_putendl("sb");
+	}
+
 	if (ft_lstcount(*lst_a) <= 3)
-		ft_algomin(lst_a);
+		algomin(lst_a);
 	while (c)
 	{
-		ft_pa(lst_a, lst_b);
+		pa(*lst_a, *lst_b);
 		ft_putendl("pa");
 		c--;
 	}
 }
 
-void	ft_quick_min(t_ev *ev, t_list **lst_a, t_list **lst_b)
+void			small_quick(t_list **lst_a, t_list **lst_b, int min, int med)
 {
-	int		c;
-	int		min;
-
-	min = ft_minval(*lst_a);
-	c = ft_check_val(*lst_a, min + ((ft_maxval(*lst_a) - min)));
-	while (c && ft_check_stack2(*lst_a) == -1)
-		if (*((int*)(*lst_a)->content) == min)
-		{
-			ft_pb(lst_a, lst_b);
-			ft_putendl("pb");
-			min = ft_minval(*lst_a);
-			c--;
+		min = ft_lstmin(*lst_a);
+		while (1 && check_stack2(*lst_a) == -1)
+			if (ft_lstcount(*lst_a) == 3)
+			{
+				algomin(lst_a);
+				break;
+			}
+			else if (lastval(*lst_a) < med)
+			{
+					pb(*lst_a, *lst_b);
+					ft_putendl("pb");
+					min = ft_lstmin(*lst_a);
+			}
+			else if (len_sort(*lst_a, min) >= 0)
+			{
+					rra(lst_a);
+					ft_putendl("rra");
+			}
+			else
+			{
+				ra(lst_a);
+				ft_putendl("ra");
 		}
-		else if (ft_len_sort(*lst_a, min) >= 0)
-		{
-			ft_ra(lst_a);
-			ft_putendl("ra");
-		}
-		else
-		{
-			ft_rra(lst_a);
-			ft_putendl("rra");
-		}
-	ft_suite_pa(lst_a, lst_b, c);
+		suite_pa(lst_a, lst_b);
 }

@@ -10,42 +10,41 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME_P = push_swap
+NAME_C	=	checker
 
-NAME_C = checker
+SRC_C	=	srcs_checker/main_check.c \
+			srcs_checker/checker.c \
+			srcs_common/instructions1.c \
+			srcs_common/instructions2.c \
+			srcs_common/instructions3.c \
+			srcs_pushswap/tools_sort2.c \
+			srcs_pushswap/ft_error.c
+OBJ_C	=	$(SRC_C:.c=.o)
 
-SRC_P = srcs_pushswap/main_push.c \
-		src_common/ft_lst_init.c \
-		instruction/ft_instruction1.c \
-		instruction/ft_instruction2.c \
-		srcs_pushswap/ft_pushswap.c \
-		srcs_pushswap/ft_toolstack.c \
-		srcs_pushswap/toolstack2.c \
-		srcs_pushswap/ft_sort.c \
-		srcs_pushswap/ft_sort1.c \
-		srcs_pushswap/ft_algo.c \
-		srcs_checker/checker.c \
-		srcs_pushswap/algo_min.c \
-		srcs_pushswap/tool_sort.c \
-		srcs_pushswap/ft_algo_suite.c \
-		src_common/ft_error.c
+NAME_P	=	push_swap
 
-OBJ_P = $(SRC_P:.c=.o)
+SRC_P	=	srcs_pushswap/main_push.c \
+			srcs_pushswap/ft_error.c \
+			srcs_pushswap/tools_sort1.c \
+			srcs_pushswap/tools_sort2.c \
+			srcs_pushswap/algo_min.c \
+			srcs_pushswap/algo_med.c \
+			srcs_pushswap/sort1.c \
+			srcs_pushswap/sort2.c \
+			srcs_pushswap/define_med.c \
+			srcs_common/instructions1.c \
+			srcs_common/instructions2.c \
+			srcs_common/instructions3.c
 
-SRC_C = srcs_checker/main_check.c \
-		srcs_checker/checker.c \
-		instruction/ft_instruction1.c \
-		instruction/ft_instruction2.c \
-		src_common/ft_lst_init.c \
-		src_common/ft_error.c
+OBJ_P	=	$(SRC_P:.c=.o)
 
-OBJ_C = $(SRC_C:.c=.o)
-
-LIB = libft/libft.a \
-		printf/libftprintf.a
-FLAGS = -Wall -Wextra -Werror
+LIBS	=	libft/libft.a \
+				printf/libftprintf.a
+RM		=	rm -f
+FLAGS	=	-Wall -Wextra -Werror
 LIBFT = libft
 PRINTF = printf
+
 HEADER = -I includes
 CC = gcc
 RM = rm -rf
@@ -59,26 +58,26 @@ C_WARN = "\033[33m"
 
 .PHONY: all clean fclean re
 
-all: $(NAME_C) $(NAME_P)
+all		:	$(NAME_C) $(NAME_P) $(LIBS)
 
- $(NAME_C): $(LIB) $(OBJ_C)
-	@$(CC) $(OBJ_C) $(FLAGS) -o $(NAME_C) $(LIB)
+$(NAME_C)	:	$(OBJ_C) $(LIBS)
+	@$(CC) $(OBJ_C) $(FLAGS) -o $(NAME_C) $(LIBS)
 
- $(NAME_P): $(LIB) $(OBJ_P)
-	@$(CC) $(CFLAGS) $(OBJ_P) -o $(NAME_P) $(LIB)
-	@echo "\033[32m[ 100% ]\033[0m Compiling [ $(NAME_P) & $(NAME_C) ]" $(OK)
+$(NAME_P)	:	$(OBJ_P) $(LIBS)
+	@$(CC) $(OBJ_P) $(FLAGS) -o $(NAME_P) $(LIBS)
 
-$(LIB):
+$(LIBS)	:
 	@make -C libft
 	@make -C printf
-clean:
+
+clean	:
 	@make clean -s -C $(LIBFT)
 	@make clean -s -C $(PRINTF)
 	@$(RM) $(OBJ_P)
 	@$(RM) $(OBJ_C)
 	@echo "\033[32m[ Delete ]\033[0m [ objs /$(NAME_P) /$(NAME_C) ]" $(OK)
 
-fclean:
+fclean	:	clean
 	@make fclean -s -C $(LIBFT)
 	@make fclean -s -C $(PRINTF)
 	@$(RM) $(OBJ_P)
@@ -87,4 +86,4 @@ fclean:
 	@$(RM) $(NAME_P)
 	@echo "\033[32m[ Delete ]\033[0m [ objs & $(NAME_P) $(NAME_C) ]" $(OK)
 
-re:fclean all
+re:	fclean all

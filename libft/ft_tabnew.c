@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_tab_new.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eparisot <eparisot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cammapou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/29 14:57:22 by eparisot          #+#    #+#             */
-/*   Updated: 2017/11/15 17:44:53 by eparisot         ###   ########.fr       */
+/*   Created: 2017/11/23 10:53:20 by cammapou          #+#    #+#             */
+/*   Updated: 2017/11/23 10:54:12 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+int	*ft_tabnew(size_t size)
 {
-	if (alst && new)
-	{
-		new->next = *alst;
-		*alst = new;
-	}
+	int	*str;
+
+	if (!(str = (int*)malloc(sizeof(*str) * (size + 1))))
+		return (NULL);
+	ft_bzero(str, size + 1);
+	return (str);
 }

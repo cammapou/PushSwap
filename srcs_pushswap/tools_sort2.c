@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_algo_suite.c                                    :+:      :+:    :+:   */
+/*   tool_sort2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cammapou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/18 11:59:48 by cammapou          #+#    #+#             */
-/*   Updated: 2018/07/18 12:06:38 by cammapou         ###   ########.fr       */
+/*   Created: 2018/07/17 17:05:34 by cammapou          #+#    #+#             */
+/*   Updated: 2018/07/26 13:25:30 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void		ft_algo_suite(t_ev *ev, t_list **lst_a, t_list **lst_b)
+int			check_val(t_list *lst, int nb)
 {
-	ft_quick(ev, lst_a, lst_b);
-	ft_quick_b1(ev, lst_a, lst_b);
+	int		count;
+
+	count = 0;
+	while (lst)
+	{
+		if (*((int*)lst->content) <= nb)
+			count++;
+		lst = lst->next;
+	}
+	return (count);
+}
+
+void		del(void *content, size_t content_size)
+{
+	(void)content_size;
+	free(content);
 }

@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pushswap.c                                      :+:      :+:    :+:   */
+/*   ft_lstaddend.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/17 12:02:28 by cammapou          #+#    #+#             */
-/*   Updated: 2018/07/17 16:44:59 by cammapou         ###   ########.fr       */
+/*   Created: 2018/04/24 12:48:10 by cammapou          #+#    #+#             */
+/*   Updated: 2018/07/18 18:52:11 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int	ft_pushswap(t_ev *ev, t_list **lst_a, t_list **lst_b)
+void	ft_lstaddend(t_list **alst, t_list *new)
 {
-	if (ft_check_stack2(*lst_a) == 0)
-		return (0);
-	else if (ft_lstcount(*lst_a) <= 3)
-		ft_algomin(lst_a);
-	else if (ft_lstcount(*lst_a) > 3 && ft_lstcount(*lst_a) <= 30)
-		ft_quick_min(ev, lst_a, lst_b);
-	else
-		ft_sort(ev, lst_a, lst_b);
-	return (0);
+	t_list	*tmp;
+
+	tmp = *alst;
+	if (alst && new)
+	{
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = new;
+	}
 }

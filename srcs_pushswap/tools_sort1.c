@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tool_sort.c                                        :+:      :+:    :+:   */
+/*   tool_sort1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cammapou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,18 @@
 
 #include "../includes/push_swap.h"
 
-int		ft_check(t_list *lst)
+int	io(t_list *lst)
+{
+	while (lst->next)
+	{
+		if (*((int*)lst->next->content) > *((int*)lst->content))
+			return (0);
+		lst = lst->next;
+	}
+	return (1);
+}
+
+int	iro(t_list *lst)
 {
 	while (lst->next)
 	{
@@ -23,7 +34,21 @@ int		ft_check(t_list *lst)
 	return (1);
 }
 
-int		ft_len_sort(t_list *lst, int nb)
+int	lastval(t_list *lst)
+{
+	while (lst->next)
+		lst = lst->next;
+	return (*((int*)lst->content));
+}
+
+int	blastval(t_list *lst)
+{
+	while (lst->next->next)
+		lst = lst->next;
+	return (*((int*)lst->content));
+}
+
+int	len_sort(t_list *lst, int nb)
 {
 	int		i;
 	int		c;
@@ -48,18 +73,4 @@ int		ft_len_sort(t_list *lst, int nb)
 		k++;
 	}
 	return (k - c);
-}
-
-int		ft_count(t_list *lst, int nb)
-{
-	int		count;
-
-	count = 0;
-	while (lst)
-	{
-		if (*((int*)lst->content) <= nb)
-			count++;
-		lst = lst->next;
-	}
-	return (count);
 }

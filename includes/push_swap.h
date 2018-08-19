@@ -6,101 +6,68 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 12:48:10 by cammapou          #+#    #+#             */
-/*   Updated: 2018/07/18 18:52:11 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/08/01 15:29:40 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
 # include "../libft/libft.h"
 # include "../printf/includes/ft_printf.h"
 # include <stdio.h>
-# include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-
-typedef	struct		s_ev
-{
-	int				*tmp;
-	int				len_a;
-	int				len_b;
-	int				max;
-	int				med;
-	int				md;
-	int				i;
-	int				*min;
-}					t_ev;
-
 /*
-**				Push_Swap
+**			 Push_Swap
 */
-int					ft_pushswap(t_ev *ev, t_list **lst_a, t_list **lst_b);
-
-/*
-**				Sort
-*/
-void				ft_sort(t_ev *ev, t_list **lst_a, t_list **lst_b);
-void				ft_algo_suite(t_ev *ev, t_list **lst_a, t_list **lst_b);
-int					ft_quick(t_ev *ev, t_list **lst_a, t_list **lst_b);
-void				ft_quick_b1(t_ev *ev, t_list **lst_a, t_list **lst_b);
-int					ft_quickb1a(t_list **lst_a, t_list **lst_b, int med, int i);
-int					ft_quickb1b(t_list **lst_a, t_list **lst_b, int med, int i);
-void				ft_quickb1c(t_list **lst_a, t_list **lst_b, int med, int i);
-void				ft_quick_b2(t_list **lst_a, t_list **lst_b, int med, int i);
-void				ft_select_b1(t_ev *ev, t_list **lst_a, t_list **lst_b);
-void				ft_quick_b3(t_list **lst_a, t_list **lst_b, int med, int i);
-void				ft_quick_b4(t_list **lst_a, t_list **lst_b, int med, int i);
-void				ft_select_b3(t_list **lst_a, t_list **lst_b);
-/*
-**				Algo_min
-*/
-void				ft_algomin(t_list **lst_a);
-void				ft_small_pa(t_ev *ev, t_list **lst_a, t_list **lst_b);
-void				ft_small_quick(t_ev *ev, t_list **lst_a, t_list **lst_b);
-void				ft_quick_min(t_ev *ev, t_list **lst_a, t_list **lst_b);
-void				ft_suite_pa(t_list **lst_a, t_list **lst_b, int c);
-/*
-**				Utils
-*/
-int					ft_alpha(char **av, int ac);
-int					ft_int(char **av, int ac);
-int					ft_check_med(t_list **lst_a);
-int					ft_error_check(int ac, char **av);
-int					ft_check_doublon(char **av);
-int					ft_init_pile(t_list **lst_a, int ac, char **av);
-void				ft_print_lst_a(t_list *lst_a);
-void				ft_print_lst_b(t_list *lst_b);
+void	sort(t_list **lst_a, t_list **lst_b);
+void	small_quick(t_list **lst_a, t_list **, int min, int med);
+int		io(t_list *lst);
+int		iro(t_list *lst);
+int		lastval(t_list *lst);
+int		blastval(t_list *lst);
+int		len_sort(t_list *lst, int nb);
+int		check_val(t_list *lst, int nb);
+void	quick_a(t_list **lst_a, t_list **lst_b);
+void	select_b1(t_list **lst_a, t_list **lst_b, int med);
+void	quick_b1(t_list **lst_a, t_list **lst_b, int med, int i);
+int		quick_b1a(t_list **lst_a, t_list **lst_b, int med, int i);
+int		quick_b1b(t_list **lst_a, t_list **lst_b, int med, int i);
+void	quick_b1c(t_list **lst_a, t_list **lst_b, int med, int i);
+void	select_b2(t_list **lst_a, t_list **lst_b, int med);
+void	quick_b2(t_list **lst_a, t_list **lst_b, int med, int i);
+void	select_b3(t_list **lst_a, t_list **lst_b);
+void	algomin(t_list **lst_a);
 /*
 **				Checker
 */
-int					ft_checker(t_list *lst_a, int ac, char **av);
-int					ft_checkop(t_list *lst_a, t_list *lst_b, char *buf);
+int		checker(t_list **lst);
+int		io(t_list *lst_a);
+void	del(void *content, size_t content_size);
 /*
-**				Instruction
+**				Instructions
 */
-void				ft_sa(t_list **lst_a);
-void				ft_sb(t_list **lst_b);
-void				ft_ss(t_list **lst_a, t_list **lst_b);
-void				ft_pa(t_list **lst_a, t_list **lst_b);
-void				ft_pb(t_list **lst_a, t_list **lst_b);
-void				ft_ra(t_list **lst_a);
-void				ft_rb(t_list **lst_b);
-void				ft_rr(t_list **lst_a, t_list **lst_b);
-void				ft_rra(t_list **lst_a);
-void				ft_rrb(t_list **lst_b);
+void	sa(t_list **lst_a);
+void	sb(t_list **lst_b);
+void	ss(t_list **lst_a, t_list **lst_b);
+void	pa(t_list *lst_a, t_list *lst_b);
+void	pb(t_list *lst_a, t_list *lst_b);
+void	ra(t_list **lst_a);
+void	rb(t_list **lst_b);
+void	rr(t_list **lst_a, t_list **lst_b);
+void	rra(t_list **lst_a);
+void	rrb(t_list **lst_b);
+void	rrr(t_list **lst_a, t_list **lst_b);
 /*
-**				Tools
+**			 Error
 */
-int					ft_check(t_list *lst);
-int					ft_check_val2(t_list *lst_b, int nbr);
-void				ft_stack_clear(t_list **begin_list);
-int					ft_check_val(t_list *lst_a, int nbr);
-int					ft_minval(t_list	*lst_a);
-int					ft_maxval(t_list *lst_a);
-int					ft_len_sort(t_list *lst, int nb);
-int					ft_count(t_list *lst, int nb);
-int					ft_check_stack(t_list *lst_a);
-int					ft_check_stack2(t_list *lst_a);
-int					ft_stack_cr(t_list *lst_a);
+int		check_doublon(char **av);
+int		check_int(char **av);
+int		alpha(char **av);
+int		error_check(char **av);
+/*
+**			 Define_mediane
+*/
+int		*convert_tab(t_list *lst_a);
+int	  *tri_rapide(int *tab, int taille);
 #endif

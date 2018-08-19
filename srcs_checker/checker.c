@@ -5,74 +5,86 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/24 12:42:55 by cammapou          #+#    #+#             */
-/*   Updated: 2018/07/18 18:55:09 by cammapou         ###   ########.fr       */
+/*   Created: 2018/05/03 12:32:53 by cammapou          #+#    #+#             */
+/*   Updated: 2018/08/01 17:38:27 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_stack_clear(t_list **begin_list)
+int				io(t_list *lst_a)
 {
-	if (*begin_list != NULL)
+	while (lst_a->next)
 	{
-		free(*begin_list);
-		*begin_list = NULL;
-		ft_stack_clear(&((*begin_list)->next));
+		if ((*(int*)lst_a->next->content) > (*(int*)lst_a->content))
+			return (0);
+		lst_a = lst_a->next;
 	}
+	return (1);
 }
 
-int		ft_stack_cr(t_list *lst_a)
+static int		check_instru(char *instruct)
 {
-	int			*nbr_tmp;
-	t_list		*tmpstack;
+	int			check;
 
-	tmpstack = lst_a;
-	nbr_tmp = (int*)tmpstack->content;
-	while (tmpstack->next)
-	{
-		if (*nbr_tmp > *(int*)tmpstack->next->content)
-			return (-1);
-		tmpstack = tmpstack->next;
-		nbr_tmp = (int*)tmpstack->content;
-	}
+	check = 0;
+	(!ft_strcmp(instruct, "sa")) ? check = 1 : 0;
+	(!ft_strcmp(instruct, "sb")) ? check = 1 : 0;
+	(!ft_strcmp(instruct, "ss")) ? check = 1 : 0;
+	(!ft_strcmp(instruct, "pa")) ? check = 1 : 0;
+	(!ft_strcmp(instruct, "pb")) ? check = 1 : 0;
+	(!ft_strcmp(instruct, "ra")) ? check = 1 : 0;
+	(!ft_strcmp(instruct, "rb")) ? check = 1 : 0;
+	(!ft_strcmp(instruct, "rr")) ? check = 1 : 0;
+	(!ft_strcmp(instruct, "rra")) ? check = 1 : 0;
+	(!ft_strcmp(instruct, "rrb")) ? check = 1 : 0;
+	(!ft_strcmp(instruct, "rrr")) ? check = 1 : 0;
+	(!ft_strcmp(instruct, "")) ? check = 1 : 0;
+		return (1);
 	return (0);
 }
 
-int		ft_checkop(t_list *lst_a, t_list *lst_b, char *buf)
+static int		read_instru(t_list **lst_a, t_list **lst_b, char *instruct)
 {
-	ft_strcmp(buf, "sa") == 0 ? ft_sa(&lst_a) : 0;
-	ft_strcmp(buf, "sb") == 0 ? ft_sb(&lst_b) : 0;
-	ft_strcmp(buf, "ss") == 0 ? ft_ss(&lst_a, &lst_b) : 0;
-	ft_strcmp(buf, "pa") == 0 ? ft_pa(&lst_a, &lst_b) : 0;
-	ft_strcmp(buf, "pb") == 0 ? ft_pb(&lst_a, &lst_b) : 0;
-	ft_strcmp(buf, "ra") == 0 ? ft_ra(&lst_a) : 0;
-	ft_strcmp(buf, "rb") == 0 ? ft_rb(&lst_b) : 0;
-	ft_strcmp(buf, "rr") == 0 ? ft_rr(&lst_a, &lst_b) : 0;
-	ft_strcmp(buf, "rra") == 0 ? ft_rra(&lst_a) : 0;
-	ft_strcmp(buf, "rrb") == 0 ? ft_rrb(&lst_b) : 0;
-	return (0);
-}
-
-int		ft_checker(t_list *lst_a, int ac, char **av)
-{
-	char		*buf;
-	t_list		*lst_b;
-
-	lst_b = NULL;
-	buf = NULL;
-	while (get_next_line(0, &buf) > 0)
+	if (check_instru(instruct))
 	{
-		if (ft_checkop(lst_a, lst_b, buf) == -1)
-		{
-			free(buf);
-			ft_putendl_fd("Error", 2);
-			return (-1);
-		}
+		(!ft_strcmp(instruct, "sa")) ? sa(lst_a) : 0;
+		(!ft_strcmp(instruct, "sb")) ? sb(lst_b) : 0;
+		(!ft_strcmp(instruct, "ss")) ? ss(lst_a, lst_b) : 0;
+		(!ft_strcmp(instruct, "pa")) ? pa(*lst_a, *lst_b) : 0;
+		(!ft_strcmp(instruct, "pb")) ? pb(*lst_a, *lst_b) : 0;
+		(!ft_strcmp(instruct, "ra")) ? ra(lst_a) : 0;
+		(!ft_strcmp(instruct, "rb")) ? rb(lst_b) : 0;
+		(!ft_strcmp(instruct, "rr")) ? rr(lst_a, lst_b) : 0;
+		(!ft_strcmp(instruct, "rra")) ? rra(lst_a) : 0;
+		(!ft_strcmp(instruct, "rrb")) ? rrb(lst_b) : 0;
+		(!ft_strcmp(instruct, "rrr")) ? rrr(lst_a, lst_b) : 0;
 	}
-	if (ft_stack_cr(lst_a))
-		ft_putendl("KO");
 	else
-		ft_putendl("OK");
+		return (0);
+	return (1);
+}
+
+int				checker(t_list **lst_a)
+{
+	t_list		*lst_b;
+	char		**line;
+
+	if ((line = (char **)malloc(sizeof(char *))) == NULL)
+		return (0);
+	lst_b = ft_lstnew(NULL, sizeof(int));
+	while (get_next_line(0, line))
+	{
+		if (!read_instru(lst_a, &lst_b, *line) || !ft_strcmp(*line, ""))
+		{
+			ft_putendl("error");
+			free(*line);
+			return (0);
+		}
+		free(*line);
+	}
+	(io(*lst_a)) ? ft_putendl("OK") : ft_putendl("KO");
+	ft_lstdel(&lst_b, del);
+	free(line);
 	return (0);
 }

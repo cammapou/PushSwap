@@ -65,6 +65,7 @@ SRC =	ft_atoi.c \
 		ft_itoa.c \
 		ft_strsplit.c \
 		ft_lstadd.c \
+		ft_lstaddend.c \
 		ft_lstdel.c \
 		ft_lstdelone.c \
 		ft_lstiter.c \
@@ -79,7 +80,10 @@ SRC =	ft_atoi.c \
 		ft_lstrev.c \
 		ft_atoll.c \
 		ft_lstcount.c \
-		get_next_line.c
+		get_next_line.c \
+		ft_lstmin.c \
+		ft_tabnew.c \
+		ft_lstmax.c
 
 RM = rm -f
 

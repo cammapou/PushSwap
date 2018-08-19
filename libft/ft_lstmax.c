@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_lstmax.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eparisot <eparisot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/29 14:57:22 by eparisot          #+#    #+#             */
-/*   Updated: 2017/11/15 17:44:53 by eparisot         ###   ########.fr       */
+/*   Created: 2018/04/24 12:42:55 by cammapou          #+#    #+#             */
+/*   Updated: 2018/07/18 18:55:09 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
-void	ft_lstadd(t_list **alst, t_list *new)
+int		ft_lstmax(t_list *lst)
 {
-	if (alst && new)
+	int	max;
+
+	max = INT_MIN;
+	while (lst && lst->content)
 	{
-		new->next = *alst;
-		*alst = new;
+		if (((*(int*)lst->content) > max))
+			max = (*(int*)lst->content);
+		lst = lst->next;
 	}
+	return (max);
 }
