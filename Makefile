@@ -6,7 +6,7 @@
 #    By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/03 14:18:21 by cammapou          #+#    #+#              #
-#    Updated: 2018/07/18 15:13:08 by cammapou         ###   ########.fr        #
+#    Updated: 2018/08/23 13:10:08 by cammapou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,10 +61,10 @@ C_WARN = "\033[33m"
 all		:	$(NAME_C) $(NAME_P) $(LIBS)
 
 $(NAME_C)	:	$(OBJ_C) $(LIBS)
-	@$(CC) $(OBJ_C) $(FLAGS) -o $(NAME_C) $(LIBS)
+	@$(CC) $(FLAGS) $(OBJ_C) -o $(NAME_C) $(LIBS)
 
 $(NAME_P)	:	$(OBJ_P) $(LIBS)
-	@$(CC) $(OBJ_P) $(FLAGS) -o $(NAME_P) $(LIBS)
+	@$(CC) $(FLAGS) $(OBJ_P) -o $(NAME_P) $(LIBS)
 
 $(LIBS)	:
 	@make -C libft

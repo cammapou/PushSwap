@@ -6,7 +6,7 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 12:48:10 by cammapou          #+#    #+#             */
-/*   Updated: 2018/08/01 15:29:40 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/08/23 13:08:26 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <limits.h>
+
 /*
 **			 Push_Swap
 */
 void	sort(t_list **lst_a, t_list **lst_b);
-void	small_quick(t_list **lst_a, t_list **, int min, int med);
+void	small_quick(t_list **lst_a, t_list **lst_b, int min, int med);
 int		io(t_list *lst);
 int		iro(t_list *lst);
 int		lastval(t_list *lst);
@@ -69,5 +70,5 @@ int		error_check(char **av);
 **			 Define_mediane
 */
 int		*convert_tab(t_list *lst_a);
-int	  *tri_rapide(int *tab, int taille);
+int		*tri_rapide(int *tab, int taille, int tmp);
 #endif

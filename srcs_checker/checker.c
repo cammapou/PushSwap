@@ -6,7 +6,7 @@
 /*   By: cammapou <cammapou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/03 12:32:53 by cammapou          #+#    #+#             */
-/*   Updated: 2018/08/01 17:38:27 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/08/23 13:03:20 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static int		check_instru(char *instruct)
 	(!ft_strcmp(instruct, "rrb")) ? check = 1 : 0;
 	(!ft_strcmp(instruct, "rrr")) ? check = 1 : 0;
 	(!ft_strcmp(instruct, "")) ? check = 1 : 0;
+	if (check == 1)
 		return (1);
 	return (0);
 }

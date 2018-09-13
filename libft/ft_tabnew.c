@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tab_new.c                                          :+:      :+:    :+:   */
+/*   ft_tabnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cammapou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/23 10:53:20 by cammapou          #+#    #+#             */
-/*   Updated: 2017/11/23 10:54:12 by cammapou         ###   ########.fr       */
+/*   Updated: 2018/08/23 12:38:39 by cammapou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	*ft_tabnew(size_t size)
+int			*ft_tabnew(size_t size)
 {
-	int	*str;
+	int		*str;
 
 	if (!(str = (int*)malloc(sizeof(*str) * (size + 1))))
 		return (NULL);
